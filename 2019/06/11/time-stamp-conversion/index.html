@@ -5,18 +5,18 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://tcy.xyz">
   <title>时间戳的转换 | Joanne-tang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="时间戳的转换1、将时间戳转换为日期格式">
 <meta name="keywords" content="日常学习总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间戳的转换">
-<meta property="og:url" content="http://yoursite.com/2019/06/11/time-stamp-conversion/index.html">
+<meta property="og:url" content="https://tcy.xyz/2019/06/11/time-stamp-conversion/index.html">
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="时间戳的转换1、将时间戳转换为日期格式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-02T02:50:27.552Z">
+<meta property="og:updated_time" content="2019-08-02T06:11:26.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间戳的转换">
 <meta name="twitter:description" content="时间戳的转换1、将时间戳转换为日期格式">
@@ -68,9 +68,10 @@
 	        
 			</ul>
 		</nav>
-		<nav>
+		<!-- <nav>
 				总文章数（1）
-		</nav>
+				总字数 <span class="post-count">445</span>
+		</nav> -->
 		<nav class="header-smart-menu">
     		
     			
@@ -175,12 +176,25 @@
     </h1>
   
 
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：445字 | 预计阅读时长：2分钟
+          </span>
+          </a>
+        
         
         <a href="/2019/06/11/time-stamp-conversion/" class="archive-article-date">
   	<time datetime="2019-06-11T03:49:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-11</time>
 </a>
         
       </header>
+      <!-- <div align="center" class="post-count">
+          字数：445字 | 预计阅读时长：2分钟
+      </div> -->
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -190,6 +204,25 @@
 <h2 id="2、将日期格式转为时间戳"><a href="#2、将日期格式转为时间戳" class="headerlink" title="2、将日期格式转为时间戳"></a>2、将日期格式转为时间戳</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var strtime = <span class="string">'2014-04-23 18:55:49:123'</span>;</span><br><span class="line">var data = new Date(strtime); // 传入一个时间格式，如果不传入就是获取现在的时间，这样不兼容火狐。</span><br><span class="line">// 也可以这样写</span><br><span class="line">var data = new data(strtime.replace(/-/g, <span class="string">'/'</span>));</span><br><span class="line"></span><br><span class="line">// 有三种方法获取，在后面会讲到三种方法的区别</span><br><span class="line">time1 = data.getTime(); // 精确到毫秒，输出结果为：1398250549123</span><br><span class="line">time2 = data.valueOf(); // 精确到毫秒，输出结果为：1398250549123</span><br><span class="line">time3 = Date.parse(data); // 精确到秒，毫秒用0代替，输出结果为：1398250549000</span><br></pre></td></tr></table></figure>
 
 <h2 id="3、Date-参数形式有7种"><a href="#3、Date-参数形式有7种" class="headerlink" title="3、Date()参数形式有7种"></a>3、Date()参数形式有7种</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">new Date(<span class="string">'month dd, yyy hh:mm:ss'</span>);</span><br><span class="line">// new Date(<span class="string">'September 16, 2016 14:15:05'</span>);</span><br><span class="line">new Date(<span class="string">'month dd, yyyy'</span>);</span><br><span class="line">// new Date(<span class="string">'September 16, 2016'</span>);</span><br><span class="line">new Date(<span class="string">'yyyy/MM/dd hh:mm:ss'</span>);</span><br><span class="line">// new Date(<span class="string">'2016/09/16 14:15:05'</span>);</span><br><span class="line">new Date(yyyy, mth, dd, hh, mm, ss);</span><br><span class="line">// new Date(2016,8,16,14,15,4); // 月份从0-11</span><br><span class="line">new Date(yyyy, mth, dd);</span><br><span class="line">// new Date(2016, 8, 16);</span><br><span class="line">new Date(ms);</span><br><span class="line">// new Date(1474006780);</span><br></pre></td></tr></table></figure>
+      
+      <!-- 版权声明 -->
+      
+      
+        <div class="declare">
+          <strong>本文作者：</strong>
+          
+            Joanne-tang
+          
+          <br>
+          <strong>本文链接：</strong>
+          https://tcy.xyz/2019/06/11/time-stamp-conversion/
+          <br>
+          <strong>版权声明：</strong>
+          本作品采用
+          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+          进行许可。转载请注明出处！
+          
+        </div>
       
 
       
@@ -301,8 +334,8 @@
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <!-- 因百度云盘取消生产二维码分享，故改为：//api.qrserver.com/v1/create-qr-code/?size=150x150&data= -->
-        <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/06/11/time-stamp-conversion/" alt="微信分享二维码">
-      <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/11/time-stamp-conversion/" alt="微信分享二维码"> -->
+        <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tcy.xyz/2019/06/11/time-stamp-conversion/" alt="微信分享二维码">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://tcy.xyz/2019/06/11/time-stamp-conversion/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -327,6 +360,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间戳的转换"><span class="toc-number">1.</span> <span class="toc-text">时间戳的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、将时间戳转换为日期格式"><span class="toc-number">1.1.</span> <span class="toc-text">1、将时间戳转换为日期格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、将日期格式转为时间戳"><span class="toc-number">1.2.</span> <span class="toc-text">2、将日期格式转为时间戳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、Date-参数形式有7种"><span class="toc-number">1.3.</span> <span class="toc-text">3、Date()参数形式有7种</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -372,14 +418,45 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Joanne-tang
+    		&copy; 2019 Joanne-tang || 本站访客数人次 <span id="busuanzi_value_site_uv"></span> || 本站总访问量 <span id="busuanzi_value_site_pv"></span>
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
-    </div>
+		</div>
   </div>
 </footer>
+
+<!-- 备案信息、PV & UV统计、网站运行时间、网站框架及模板 -->
+<!-- <footer id="footer">
+	<div class="outer">
+		<div id="footer-info">
+				<div class="footer-left">
+						&copy; 2019 Joanne-tang - <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备16022690号</a>
+				</div>
+				<div class="footer-right">
+						<a href="https://hexo.io/zh-cn/" target="_blank">Evan</a>  Always Love<a href="https://github.com/litten/hexo-theme-yilia" target="_blank"> Vivian</a>
+				</div>
+				</div>
+				<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span> &||& <span id="busuanzi_container_site_uv">你是本博第 <span id="busuanzi_value_site_uv"></span> 位访客</span> || <span id="busuanzi_container_site_pv">历经 <span id="busuanzi_value_site_pv"></span> 次回眸才与你相遇</span> 
+		<script>
+				var now = new Date(); 
+				function createtime() { 
+						var grt= new Date("05/06/2019 00:00:00");//此处修改你的建站时间或者网站上线时间 
+						now.setTime(now.getTime()+250); 
+						days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+						hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+						if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+						mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+						seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+						snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+						document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+						document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+				} 
+		setInterval("createtime()",250);
+		</script>
+	</div>
+</footer> -->
     </div>
     <script>
 	var yiliaConfig = {

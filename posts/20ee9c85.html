@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://tcy.xyz">
-  <title>时间戳的转换 | Joanne-tang</title>
+  <title>JavaScript、ECMScript6的学习 | Joanne-tang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、将时间戳转换为日期格式">
+  <meta name="description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta name="keywords" content="日常学习总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="时间戳的转换">
-<meta property="og:url" content="https://tcy.xyz/posts/53f378d6.html">
+<meta property="og:title" content="JavaScript、ECMScript6的学习">
+<meta property="og:url" content="https://tcy.xyz/posts/20ee9c85.html">
 <meta property="og:site_name" content="Joanne-tang">
-<meta property="og:description" content="1、将时间戳转换为日期格式">
+<meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-06T07:11:15.702Z">
+<meta property="og:updated_time" content="2019-08-07T10:03:45.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时间戳的转换">
-<meta name="twitter:description" content="1、将时间戳转换为日期格式">
+<meta name="twitter:title" content="JavaScript、ECMScript6的学习">
+<meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
   
     <link rel="alternative" href="/atom.xml" title="Joanne-tang" type="application/atom+xml">
   
@@ -165,14 +165,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-time-stamp-conversion" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ES6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      时间戳的转换
+      JavaScript、ECMScript6的学习
     </h1>
   
 
@@ -182,28 +182,127 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：439字 | 预计阅读时长：2分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：2.1k字 | 预计阅读时长：8分钟
           </span>
           </a>
         
         
-        <a href="/posts/53f378d6.html" class="archive-article-date">
-  	<time datetime="2019-06-11T03:49:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-11</time>
+        <a href="/posts/20ee9c85.html" class="archive-article-date">
+  	<time datetime="2019-08-06T09:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
 </a>
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：439字 | 预计阅读时长：2分钟
+          字数：2.1k字 | 预计阅读时长：8分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1、将时间戳转换为日期格式"><a href="#1、将时间戳转换为日期格式" class="headerlink" title="1、将时间戳转换为日期格式"></a>1、将时间戳转换为日期格式</h2><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 简单的一句代码</span><br><span class="line">var date = new Date(时间戳); // 获取一个时间对象</span><br><span class="line"></span><br><span class="line"> // 获取时间日期的方法，可按照自己的需求进行拼接</span><br><span class="line"> // 更多方法可参考：http://www.w3school.com.cn/jsref/jsref_obj_date.asp</span><br><span class="line"> </span><br><span class="line"> data.getFullYear(); // 获取完整的年份(4位，如1970)</span><br><span class="line"> data.getMonth(); // 获取月份(0-11,0代表1月，用的时候记得加上1)</span><br><span class="line"> data.getDate(); // 获取日(1-31)</span><br><span class="line"> data.getTime(); // 获取时间(从1970.1.1开始的毫秒数)</span><br><span class="line"> data.getHours(); // 获取小时数(0-23)</span><br><span class="line"> data.getMinutes(); // 获取分钟(0-59)</span><br><span class="line"> data.getSeconds; // 获取秒数(0-59)</span><br><span class="line"> </span><br><span class="line"> // 比如需要这样的格式: yyyy-MM-dd hh:mm:ss</span><br><span class="line"> var data = new Date(1398250549490);</span><br><span class="line"> Y = data.getFullYear() + <span class="string">'-'</span>;</span><br><span class="line"> M = (data.getMonth() + 1 &lt; 10 ? <span class="string">'0'</span> + (data.getMonth() + 1) : data.getMonth() + 1) + <span class="string">'-'</span>;</span><br><span class="line"> D = data.getDate() + <span class="string">' '</span>;</span><br><span class="line"> h = date.getHours() + <span class="string">':'</span>;</span><br><span class="line"> m = data.getMinutes() + <span class="string">':'</span>;</span><br><span class="line"> s = data.getSeconds();</span><br><span class="line"> console.log(Y + M + D + h + m + s);</span><br><span class="line"> // 输出结果为:2014-04-23 18:55:49</span><br></pre></td></tr></table></figure>
+        <!-- # 1、[ECMScript6简介](http://es6.ruanyifeng.com/#docs/intro) -->
+<h1 id="JavaScript入门"><a href="#JavaScript入门" class="headerlink" title="JavaScript入门:"></a><a href="https://wangdoc.com/javascript/basic/grammar.html" target="_blank" rel="noopener">JavaScript入门</a>:</h1><h2 id="1、JavaScript简介"><a href="#1、JavaScript简介" class="headerlink" title="1、JavaScript简介"></a>1、JavaScript简介</h2><pre><code>JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”；
+JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算;
+JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScript只适合嵌入更大型的应用程序环境，去调用宿主环境提供的底层API。</code></pre><a id="more"></a>
+<h2 id="2、JavaScript基本语法"><a href="#2、JavaScript基本语法" class="headerlink" title="2、JavaScript基本语法"></a>2、JavaScript基本语法</h2><pre><code>2.1、语句：语句以分号结尾，多个语句可以写在同一行；
+2.2、变量：变量名区分大小写；
+2.3、标识符：
+      首字符可以是任意Unicode字母（包括英文字母和其他语言的字母），以及美元符号($)和下划线（_）;
+      第二个字符以及后面的字符，除了Unicode字母、美元符号和下划线，还可以用数字0-9；
+      中文是合法的标识符，可以用作变量名；
+      JavaScript 有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield；
+2.4、注释：单行注释：//;多行注释：/*和*/之间；
+2.5、区块：使用大括号，将多个相关的语句组合在一起；
+2.6、条件语句：表达式（=）、严格相等运算符（===）、相等运算符（==）
+      if结构；if...else结构；
+      switch...case（break跳出）结构；
+      三元运算符（(条件) ? 表达式1 : 表达式2）；
+2.7、循环语句：
+      while循环；
+      for循环；
+      do...while循环；
+      break语句用于跳出代码块或循环；
+      continue语句用于终止本次循环，返回循环结构头部，开始下一轮循环；
+      label标签，相当于定位符，用于跳转到程序的任意位置；通常与break、continue语句配合使用，跳出指定循环；</code></pre><h2 id="3、数据类型"><a href="#3、数据类型" class="headerlink" title="3、数据类型"></a>3、数据类型</h2><pre><code>3.1、JavaScript的数据类型有6种：
+      数值（number）：整数和小数（比如1和3.14）；
+      字符串（string）：文本（比如Hello World）；
+      布尔值（boolean）：表示真伪的两个特殊值，即true（真）和false（假）；
+      undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值；
+      null：表示空值，即此处的值为空；
+      对象（object）：各种值组成的集合；对象可分3个子类型(狭义的对象object、数组array、函数function)；
+3.2、typeof运算符：可以返回一个值的数据类型；
+3.3、null和undefined都可以表示“没有”。
+      区别是：null是一个表示“空”的对象，转换为数值时为0;
+            undefined是一个表示“此处无定义”的原始值，转换为数值时为NaN。
+3.4、布尔值：代表“真”true、“假”false两个状态；
+      转换规则：转换为false：undefined、null、false、0、NaN、&quot;&quot;、&apos;&apos;(空字符串)；其他为true(空数组[]、空对象{}对应的为true)；
+3.5、数值：
+      整数与浮点数：
+        在JavaScript内部所有数字都是以64位浮点数形式存储；运算时JavaScript会自动把64位浮点数、转成32位整数，然后再运算。
+        eg: 0.1 + 0.2 = 0.3 ---&gt; // false   (0.3 - 0.2) === (0.2 - 0.1) ---&gt; // false
+      数值精度：
+        最多只可以显示53个二进制位，这意味着，绝对值小于2的53次方(正负2)的整数都可以精确显示；大于2的53次方以后，多出来的有效数字无法保存，变成0；
+      数值的范围：
+        如果一个数大于等于2的1024次方，就会发生“正向溢出”，即JavaScript无法表示这么大的数，这时会返回Infinity；
+        如果一个数小于等于2的-1075(指数部分最小值-1023，再加上小数部分52位)，那么就会发生“负向溢出”，即JavaScript无法表示这么小的数，这时会直接返回0；
+      数值的表示法：
+        以下两种情况JavaScript会自动将数值转为科学计数法表示，其他情况都采用字面形式直接表示：
+        小数点前的数字多于21位(eg: 1234567890123456789012 ---&gt;// 1.2345678901234568e+21)
+        小数点后的零多于5个(eg: 0.0000003 ---&gt;// 3e-7)
+      数值的进制：
+        十进制：没有前导0的数值。
+        八进制：有前缀0o或0O的数值，或者有前导0、且只用到0-7的八个阿拉伯数字的数值。
+        十六进制：有前缀0x或0X的数值。
+        二进制：有前缀0b或0B的数值。
+      特殊数值：
+        正零和负零：几乎所有场合都会被当成正常的0，除了+0或-0当分母，返回的值的不相等的；
+        NaN：含义：表示“非数字”(Not a Number)，主要出现在将字符串解析成数字出错的场合；
+        Infinity：表示“无穷”,且区分正负无穷。一种是正的数值太大，或负的数值太小，无法表示；另一种是非0数值除以0，得到Infinity(eg: 0 / 0 ---&gt;NaN; 1 / 0 ---&gt; Infinity)。
+      与数值相关的全局方法：
+        parseInt()：用于将字符串转换为整数；(eg: parseInt(&apos;123&apos;) // 123)
+            字符串头部有空格，空格会自动去除；(eg: parseInt(&apos;   123&apos;) // 123)
+            不是字符串会直接转换字符串再转换成整数；(eg: parseInt(1.23) 等同于 parseInt(&apos;1.23&apos;) // 1)
+            如遇不能转换为数字的字符，则只返回已转好部分；(eg: parseInt(&apos;8a&apos;) // 8 parseInt(&apos;12**&apos;) // 12 parseInt(&apos;12.34&apos;) // 12)
+            字符串的第一个字符不能转化为数字（后面跟着数字的正负号除外），返回NaN；(eg: parseInt(&apos;&apos;) // NaN parseInt(&apos;+&apos;) // NaN parseInt(&apos;+1&apos;) // 1 )
+            自动转为科学计数法的数字，parseInt会将科学计数法的表示方法视为字符串，因此导致一些奇怪的结果；(eg: parseInt(1000000000000000000000.5) 等于 parseInt(&apos;1e+21&apos;) // 1)
+        parseFloat():用于将一个字符串转换为浮点数；(eg: parseFloat(&apos;3.14) // 3.14)
+        isNaN():可用来判断一个值是否为NaN; (eg: isNaN(NaN) // true isNaN(123) // false)
+            isNaN只对数值有效，如果传入其他值，会被先转成数值。
+            (eg: isNaN(&apos;hello&apos;) // true 字符串会被先转化为NaN，最后返回true；
+            也就是说isNaN为true时，有可能不是NaN，而是一个字符串。
+            因此使用isNaN之前先判断数据类型，利用NaN为唯一不等于自身的值这一特点来判断 value !== value)
+        isFinite():返回一个布尔值，表示某个值是否为正常的数值。除了Infinity、-Infinity、NaN和undefined这几个值会返回false，isFinite对于其他的数值都会返回true。
+3.6字符串：
+      转义符：反斜杠(\)；
+            \0 ：null（\u0000）
+            \b ：后退键（\u0008）
+            \f ：换页符（\u000C）
+            \n ：换行符（\u000A）
+            \r ：回车键（\u000D）
+            \t ：制表符（\u0009）
+            \v ：垂直制表符（\u000B）
+            \&apos; ：单引号（\u0027）
+            \&quot; ：双引号（\u0022）
+            \\ ：反斜杠（\u005C）
+      字符集：JavaScript使用Unicode字符集。JavaScript引擎内部，所有字符都用Unicode表示。(eg: var s = &apos;\u00A9&apos;; s // &quot;©&quot;  var f\u006F\u006F = &apos;abc&apos;; foo // &quot;abc)
+      Base64转码：btoa()：任意值转为 Base64 编码；atob()：Base64 编码转为原来的值；(这两个方法不适合非ASCLL码的字符)
+                  要将非 ASCII 码字符转为 Base64 编码，必须中间插入一个转码环节，再使用这两个方法:
+                   function b64Encode(str) {
+                    return btoa(encodeURIComponent(str));
+                  }
 
-<h2 id="2、将日期格式转为时间戳"><a href="#2、将日期格式转为时间戳" class="headerlink" title="2、将日期格式转为时间戳"></a>2、将日期格式转为时间戳</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var strtime = <span class="string">'2014-04-23 18:55:49:123'</span>;</span><br><span class="line">var data = new Date(strtime); // 传入一个时间格式，如果不传入就是获取现在的时间，这样不兼容火狐。</span><br><span class="line">// 也可以这样写</span><br><span class="line">var data = new data(strtime.replace(/-/g, <span class="string">'/'</span>));</span><br><span class="line"></span><br><span class="line">// 有三种方法获取，在后面会讲到三种方法的区别</span><br><span class="line">time1 = data.getTime(); // 精确到毫秒，输出结果为：1398250549123</span><br><span class="line">time2 = data.valueOf(); // 精确到毫秒，输出结果为：1398250549123</span><br><span class="line">time3 = Date.parse(data); // 精确到秒，毫秒用0代替，输出结果为：1398250549000</span><br></pre></td></tr></table></figure>
+                  function b64Decode(str) {
+                    return decodeURIComponent(atob(str));
+                  }
 
-<h2 id="3、Date-参数形式有7种"><a href="#3、Date-参数形式有7种" class="headerlink" title="3、Date()参数形式有7种"></a>3、Date()参数形式有7种</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">new Date(<span class="string">'month dd, yyy hh:mm:ss'</span>);</span><br><span class="line">// new Date(<span class="string">'September 16, 2016 14:15:05'</span>);</span><br><span class="line">new Date(<span class="string">'month dd, yyyy'</span>);</span><br><span class="line">// new Date(<span class="string">'September 16, 2016'</span>);</span><br><span class="line">new Date(<span class="string">'yyyy/MM/dd hh:mm:ss'</span>);</span><br><span class="line">// new Date(<span class="string">'2016/09/16 14:15:05'</span>);</span><br><span class="line">new Date(yyyy, mth, dd, hh, mm, ss);</span><br><span class="line">// new Date(2016,8,16,14,15,4); // 月份从0-11</span><br><span class="line">new Date(yyyy, mth, dd);</span><br><span class="line">// new Date(2016, 8, 16);</span><br><span class="line">new Date(ms);</span><br><span class="line">// new Date(1474006780);</span><br></pre></td></tr></table></figure>
+                  b64Encode(&apos;你好&apos;) // &quot;JUU0JUJEJUEwJUU1JUE1JUJE&quot;
+                  b64Decode(&apos;JUU0JUJEJUEwJUU1JUE1JUJE&apos;) // &quot;你好&quot;
+3.7对象：
+      对象：对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合；
+      属性读取：一种是使用点运算符、另一种是使用方括号运算符；(eg: var obj = { p: &apos;Hello World&apos; }; obj.p // &quot;Hello World&quot;   obj[&apos;p&apos;] // &quot;Hello World&quot;)
+      属性查看：查看一个对象本身的所有属性，可使用object.keys方法；
+      属性删除: delete命令；
+      属性是否存在：in运算符；
+      属性遍历：for...in循环；注意：只会遍历对象所有可遍历的属性，会跳过不可遍历的属性；不仅遍历自身的属性，还可遍历继承的属性；
+3.8函数：</code></pre>
       
       <!-- 版权声明 -->
       
@@ -215,7 +314,7 @@
           
           <br>
           <strong>本文链接：</strong>
-          https://tcy.xyz/posts/53f378d6.html
+          https://tcy.xyz/posts/20ee9c85.html
           <br>
           <strong>版权声明：</strong>
           本作品采用
@@ -334,8 +433,8 @@
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <!-- 因百度云盘取消生产二维码分享，故改为：//api.qrserver.com/v1/create-qr-code/?size=150x150&data= -->
-        <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tcy.xyz/posts/53f378d6.html" alt="微信分享二维码">
-      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://tcy.xyz/posts/53f378d6.html" alt="微信分享二维码"> -->
+        <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tcy.xyz/posts/20ee9c85.html" alt="微信分享二维码">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://tcy.xyz/posts/20ee9c85.html" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -349,15 +448,11 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/dbd9b00.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          pswText(测试私密文件加密)
-        
-      </div>
-    </a>
   
+    <a href="/posts/a76f6828.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记录blog过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -382,7 +477,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、将时间戳转换为日期格式"><span class="toc-number">1.</span> <span class="toc-text">1、将时间戳转换为日期格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、将日期格式转为时间戳"><span class="toc-number">2.</span> <span class="toc-text">2、将日期格式转为时间戳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、Date-参数形式有7种"><span class="toc-number">3.</span> <span class="toc-text">3、Date()参数形式有7种</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript入门"><span class="toc-number">1.</span> <span class="toc-text">JavaScript入门:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、JavaScript简介"><span class="toc-number">1.1.</span> <span class="toc-text">1、JavaScript简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、JavaScript基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">2、JavaScript基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、数据类型"><span class="toc-number">1.3.</span> <span class="toc-text">3、数据类型</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

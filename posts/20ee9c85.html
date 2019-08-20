@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-19T10:20:13.028Z">
+<meta property="og:updated_time" content="2019-08-20T10:18:17.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript、ECMScript6的学习">
 <meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
@@ -70,7 +70,7 @@
 		</nav>
 		<!-- <nav>
 				总文章数（4）
-				总字数 <span class="post-count">13k</span>
+				总字数 <span class="post-count">16.1k</span>
 		</nav> -->
 		<nav class="header-smart-menu">
     		
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：12.3k字 | 预计阅读时长：46分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：15.4k字 | 预计阅读时长：59分钟
           </span>
           </a>
         
@@ -193,7 +193,7 @@
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：12.3k字 | 预计阅读时长：46分钟
+          字数：15.4k字 | 预计阅读时长：59分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
@@ -718,7 +718,144 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
       概述：Date对象是JavaScript原生的时间库；它以国际标准时间（UTC）1970年1月1日00:00:00作为时间的零点，可以表示的时间范围是前后各1亿天（单位为毫秒）；
       普通函数的用法：Date对象可以作为普通函数直接调用，不管有无参数，总是返回一个代表当前时间的字符串；
       构造函数的用法：
-          对Date使用new命令，会返回一个Date对象的实例，如果不加参数，实例代表的就是当前的时间；</code></pre>
+          对Date使用new命令，会返回一个Date对象的实例，如果不加参数，实例代表的就是当前的时间；
+          Date实例默认调用toString()方法，返回的值是一个字符串，代表实例对应的时间；
+          Date对象接受多种格式的参数(只要能被Date.parse()方法解析的字符串，都可以被当做参数)，返回一个该参数的时间实例；
+              参数为时间零点开始计算的毫秒数：new Date(1378218728000) // Tue Sep 03 2013 22:32:08 GMT+0800 (CST)
+              参数为日期的字符串：new Date(&apos;January 6, 2013&apos;)；// Sun Jan 06 2013 00:00:00 GMT+0800 (CST)
+              参数为多个整数，代表年月日时分秒毫秒(年月不可省略，其他参数可以省略)：new Date(2013, 0, 1, 0, 0, 0, 0): // Tue Jan 01 2013 00:00:00 GMT+0800 (CST)
+              参数为负整数，代表1970年元旦之前的时间：new Date(-1378218728000) // Fri Apr 30 1926 17:27:52 GMT+0800 (CST)
+              参数的取值范围，超出范围会被自动折算；参数可以使用负数，表示扣去的时间：
+                  年：使用四位数年份，比如2000；如果写成两位数或个位数，则加上1900，即10代表1910年，如果是负数，表示公元前；
+                  月：0代表一月，依次类推，11代表12月；
+                  日：1-31；
+                  小时：0-59；
+                  分钟：0-59；
+                  秒：0-59；
+                  毫秒：0-999；
+      日期的运算：减法运算返回的是它们间隔的毫秒数；加法运算返回的两个字符串连接而成的新字符串；
+      静态方法：
+          Date.now()：返回当前时间距离时间零点(1970年1月1日 00:00:00 UTC)的毫秒数，相当于Unix时间乘以1000；
+          Date.parse()：该方法用来解析日期字符串，返回时间距离时间零点(1970年1月1日 00:00:00)的毫秒数；
+          Date.UTC()：该方法接受年月日等变量作为参数，返回该事件距离时间零点的毫秒数；格式：Date UTC(year, month[, date[, hrs[, min[, sec[, ms]]]]])--&gt;(eg：Date.UTC(2011, 0, 1, 2, 3, 4, 567) // 1293847384567)
+      实例方法：
+          Date.prototype.ValueOf()：该方法返回实例对象距离时间零点对应的毫秒数，等同于getTime方法；
+          to类方法：从Date对象返回一个字符串，表示指定时间；
+              Date.prototype.toString()：toString方法返回一个完整的日期字符串，默认调用的方法；
+              Date.prototype.toUTCString()：toUTCString方法返回对应的UTC时间，也就是比北京时间晚8小时；
+              Date.prototype.toISOString()：toISOString方法返回对应时间ISO8601写法；toISOString方法返回的总是UTC时区的时间；
+              Date.prototype.toJSON()：toJSON方法返回一个符合JSON格式的ISO日期字符串，与toISOString方法返回的结果完全相同；
+              Date.prototype.toDateString()：toDateString方法返回日期字符串(不含小时，分和秒)；
+              Date.prototype.toTimeString()：toTimeString方法返回时间字符串(不含年月日)；
+              本地时间：以下三种方法可将Date实例转为表示本地时间的字符串，都有两个可选参数(指定所用语言的字符串，配置对象)：
+                  Date.prototype.toLocaleString()：完整的本地时间；
+                  Date.prototype.toLocaleDateString()：本地时间(不含时分秒)；
+                  Date.prototype.toLocaleTimeString()：本地时间(不含年月日)；
+          get类方法：获取Date对象的日期和时间，所有get*方法返回的都是整数，；
+              getTime()：返回实例距离时间零点的毫秒数，等同于valueOf方法；
+              getDate()：返回实例对象对应每个月的几号(从1开始)；
+              getDay()：返回星期几，星期日为0，星期一位1，以此类推；
+              getFullYear()：返回四位的年份；
+              getMonth()：返回月份(0表示1月，11表示12月)；
+              getHours()：返回小时；
+              getMilliseconds：返回毫秒；
+              getMinutes()：返回分钟；
+              getSeconds()：返回秒(0-59);
+              getTimezoneOffset()：返回当前时间与UTC的时区差异，以分钟表示，返回结果考虑到了夏令时因素；
+          set类方法：设置Date对象的日期和时间，与get*方法基本一一对应，但没有setDay方法，因星期是计算出来的；
+              setDate(date)：设置实例对象对应的每个月的几号(1-31)，返回后改变毫秒时间戳；
+              setFullYear(year [, month, date])：设置四位年份。
+              setHours(hour [, min, sec, ms])：设置小时（0-23）。
+              setMilliseconds()：设置毫秒（0-999）。
+              setMinutes(min [, sec, ms])：设置分钟（0-59）。
+              setMonth(month [, date])：设置月份（0-11）。
+              setSeconds(sec [, ms])：设置秒（0-59）。
+              setTime(milliseconds)：设置毫秒时间戳。
+6.9、RegExp对象：提供正则表达式的功能；
+    概述：正则表达式是一种表达文本模板(即字符串结构)的方法，有点像字符串的模板，常用来按照“给定模式”匹配文本；
+    新建正则表达式的两种方法：
+        字面量：以斜杆表示开始结束；在引擎编译代码时就会新建正则表达式，效率高，实际应用基本使用字面量方法；(eg: var regex = /xyz/;)
+        RegExp构造函数：在运行时新建正则表达式；(eg：var regex = new RegExp(&apos;xyz&apos;);)
+    实例属性：
+        修饰符相关，用于了解设置了什么修饰符(只读)：
+            RegExp.prototype.ignoreCase：返回一个布尔值，表示是否设置了i修饰符；
+            RegExp.prototype.global：返回一个布尔值，表示是否设置了g修饰符；
+            RegExp.prototype.multiline：返回一个布尔值，表示是否设置了m修饰符；
+            RegExp.prototype.flags：返回一个字符串，包含了已经设置的所有修饰符，按字母排序；
+        与修饰符无关的属性：
+            RegExp.prototype.lastIndex：返回一个整数，表示下一次开始搜索的位置；该属性可读写，但是只在进行连续搜索时有意义；
+            RegExp.prototype.source：返回正则表达式的字符串形式(不包括反斜杠)，该属性只读；
+    实例方法：
+        RegExp.prototype.test()：正则实例的test方法返回一个布尔值，表示当前模式是否匹配参数字符串；(eg：/cat/.test(&apos;cats and dogs&apos;) // true)
+        RegExp.prototype.exec()：正则实例对象的exec方法，用来返回匹配结果；如果发现匹配，就返回一个数组，成员是匹配成功的子字符串，否则返回null；如果带有g修饰符，则可以多次使用exec方法；
+    字符串的实例方法：
+        String.prototype.match()：
+            返回一个数组，成员是所有匹配的子字符串，匹配失败返回null；
+            如果正则表达式带有g修饰符，该方法会一次性返回所有匹配成功的结果；
+            lastIndex属性对match方法无效，该方法总是会从字符串的第一个字符开始；
+        String.prototype.search()：按照给定的正则表达式进行搜索，返回一个整数，表示匹配开始的位置，如果没有任何匹配则返回-1；(eg：&apos;_x_x&apos;.search(/x/) // 1)
+        String.prototype.replace()：
+            按照给定的正则表达式进行替换，返回替换后的字符串；
+            接受两个参数(eg：str.replace(search, replacement))：
+                正则表达式表示搜索模式;
+                替换内容；第二个参数可以使用$来替换内容($&amp;匹配的子字符串、$`匹配结果前面的文本、$’匹配结构后面的文本、$n匹配成功的第n组内容，n是从1开始的自然数、$$指代美元符号$);
+            replace方法的一个应用，就是消除字符串首尾两端的空格；(eg：var str = &apos; #id div.class &apos;; str.replace(/^\s+|\s+$/g, &apos;&apos;) // &quot;#id div.class&quot;)
+        String.prototype.split()：
+            按照给定规则字符串分割，返回一个数组，包含分割后的各个成员；
+            接受两个参数：正则表达式，表示分割规则；返回数组的最大成员数;(eg：&apos;a,  b,c, d&apos;.split(/, */, 2) // [&apos;a&apos;, &apos;b&apos;])
+    匹配规则：
+        字面量字符：如果在正则表达式之中，某个字符只表示它字面的含义，那么就称为字面量字符；
+        元字符(.、^、$、\、\*、+、?、()、[]、{}等)：
+            点字符(.)：点字符.匹配除回车\t、换行\n、行分割符\u2029、段分割符\u2029以外的所有字符。注意，对于码点大于0xFFFF字符，点字符不能正确匹配，会认为这是两个字符；
+            位置字符：用来提示字符串所处的位置；^ 表示字符串的开始位置；$表示字符串结束位置；(eg：/^test$/.test(&apos;test&apos;) // true ---&gt;从开始到结束的位置只有test)
+            选择符(|)：表示“或关系”(or),即cat|dog表示匹配cat或dog；
+        转义符：
+            正则表达式中那些有特殊含义的元字符，如果要匹配它们本身，就需要在它们前面加上反斜杠。比如要匹配+，要写成\+；
+            需要加反斜杠转义的一共有12个字符：^、.、[、$、(、)、|、*、+、?、{、\；
+            特别注意如果使用RegExp方法生成正则对象，转义需要使用两个斜杆，因为字符床内部会先转义一次；(eg：(new RegExp(&apos;1\\+1&apos;)).test(&apos;1+1&apos;) // true)
+        特殊字符：
+            正则表达式对一些不能打印的特殊字符，提供了表达方式：
+                \cX 表示Ctrl-[X]，其中的X是A-Z之中任一个英文字母，用来匹配控制字符。
+                [\b] 匹配退格键(U+0008)，不要与\b混淆。
+                \n 匹配换行键。
+                \r 匹配回车键。
+                \t 匹配制表符 tab（U+0009）。
+                \v 匹配垂直制表符（U+000B）。
+                \f 匹配换页符（U+000C）。
+                \0 匹配null字符（U+0000）。
+                \xhh 匹配一个以两位十六进制数（\x00-\xFF）表示的字符。
+                \uhhhh 匹配一个以四位十六进制数（\u0000-\uFFFF）表示的 Unicode 字符。
+        字符类：字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如[xyz]表示xyz之中任选一个匹配；
+            脱字符(^)：
+                如果方括号内的第一个字符是[^]，则表示除了字符类之中的字符，其他字符都可以匹配。
+                比如[^xyz]表示除了xyz之外都可以匹配；(eg：/[^abc]/.test(&apos;bbc news&apos;) // true   /[^abc]/.test(&apos;bbc&apos;) // false)
+                如果方括号内没有其他字符，即只有[^]，就表示能匹配一切字符，其中包括换行符。相比之下，点号作为元字符(.)是不包括换行符的：
+                    (eg：var s = &apos;Please yes\nmake my day!&apos;;s.match(/yes.*day/) // null  s.match(/yes[^]*day/) // [ &apos;yes\nmake my day&apos;])
+            连字符(-)：某些情况下，对于连续序列的字符，连字符-用来提供简写形式，表示字符的连续范围;
+                (eg：[abc]---&gt;[a-c], [0123456789]---&gt;[0-9], /a-z/.test(&apos;b&apos;) // false, /[a-z]/.test(&apos;b&apos;) // true ---&gt;需要[]才能具备简写作用)
+                [1-31]---&gt;不代表1到31，只代表1到3；
+                连字符还可以用来指定Unicode字符的范围：(eg：var str = &quot;\u0130\u0131\u0132&quot;; /[\u0128-\uFFFF]/.test(str) // true)
+        预定义模式：
+            \d 匹配0-9之间的任一数字，相当于[0-9]。
+            \D 匹配所有0-9以外的字符，相当于[^0-9]。
+            \w 匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]。
+            \W 除所有字母、数字和下划线以外的字符，相当于[^A-Za-z0-9_]。
+            \s 匹配空格（包括换行符、制表符、空格符等），相等于[ \t\r\n\v\f]。(eg：/\s\w*/.exec(&apos;hello world&apos;) // [&quot; world&quot;])
+            \S 匹配非空格的字符，相当于[^ \t\r\n\v\f]。
+            \b 匹配词的边界。(eg：/\bworld/.test(&apos;hello world&apos;) // true)
+            \B 匹配非词边界，即在词的内部。(eg：/\Bworld/.test(&apos;helloworld&apos;) // true)
+        重复类：模式的精确匹配次数，使用大括号{}表示；{n}表示恰好重复n次，{n,}表示至少重复n次;{n,m}表示重复不少于n次，不多于m次；(eg：/lo{2,5}k/.test(&apos;looook&apos;) // true)
+        量词符：用来设定某个模式出现的次数；
+            ? 问号表示某个模式出现0次或1次，等同于{0, 1};(eg：/t?est/.test(&apos;test&apos;) // true)
+            * 星号表示某个模式出现0次或多次，等同于{0,};(eg：/t*est/.test(&apos;test&apos;) // true)
+            + 加号表示某个模式出现1次或多次，等同于{1,}; (eg：/t+est/.test(&apos;test&apos;) // true)
+        贪婪模式：
+            默认情况下都是最大可能匹配，即匹配直到下一个字符不满足匹配规则为止；
+            (eg：var s = &apos;aaa&apos;; s.match(/a+/) // [aaa] --&gt;模式是a+，表示匹配1个或多个a，因默认贪婪模式，会一直匹配到字符a不出现为止，所以结果为3个a)
+            非贪婪模式：
+                +?：表示某个模式出现1次或多次；(eg：var s = &apos;aaa&apos;; s.match(/a+?/) // [&quot;a&quot;])
+                *?：表示某个模式出现0次或多次，(eg：&apos;abb&apos;.match(/ab*?b/) // [&quot;ab&quot;])
+                ??：表格某个模式出现0次或1次，(eg：&apos;abb&apos;.match(/ab??b/) // [&quot;ab&quot;])</code></pre>
       
       <!-- 版权声明 -->
       

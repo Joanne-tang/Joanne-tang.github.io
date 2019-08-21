@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-20T10:18:17.340Z">
+<meta property="og:updated_time" content="2019-08-21T10:23:28.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript、ECMScript6的学习">
 <meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
@@ -70,7 +70,7 @@
 		</nav>
 		<!-- <nav>
 				总文章数（4）
-				总字数 <span class="post-count">16.1k</span>
+				总字数 <span class="post-count">17.4k</span>
 		</nav> -->
 		<nav class="header-smart-menu">
     		
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：15.4k字 | 预计阅读时长：59分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：16.8k字 | 预计阅读时长：63分钟
           </span>
           </a>
         
@@ -193,7 +193,7 @@
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：15.4k字 | 预计阅读时长：59分钟
+          字数：16.8k字 | 预计阅读时长：63分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
@@ -806,8 +806,8 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
     匹配规则：
         字面量字符：如果在正则表达式之中，某个字符只表示它字面的含义，那么就称为字面量字符；
         元字符(.、^、$、\、\*、+、?、()、[]、{}等)：
-            点字符(.)：点字符.匹配除回车\t、换行\n、行分割符\u2029、段分割符\u2029以外的所有字符。注意，对于码点大于0xFFFF字符，点字符不能正确匹配，会认为这是两个字符；
-            位置字符：用来提示字符串所处的位置；^ 表示字符串的开始位置；$表示字符串结束位置；(eg：/^test$/.test(&apos;test&apos;) // true ---&gt;从开始到结束的位置只有test)
+            点字符(.)：点字符.\t、换行\n、行分割符\u2029、段分割符\u2029以外的所有字符。注意，对于码点大于0xFFFF字符，点字符不能正确匹配，会认为这是两个字符；
+            位置字符：用来提示字符串所处的位置；^ 表示字符串的开始位置；$表示字符串结束位置；(eg：/^test$/.test(&apos;test&apos;匹配除回车) // true ---&gt;从开始到结束的位置只有test)
             选择符(|)：表示“或关系”(or),即cat|dog表示匹配cat或dog；
         转义符：
             正则表达式中那些有特殊含义的元字符，如果要匹配它们本身，就需要在它们前面加上反斜杠。比如要匹配+，要写成\+；
@@ -855,7 +855,60 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
             非贪婪模式：
                 +?：表示某个模式出现1次或多次；(eg：var s = &apos;aaa&apos;; s.match(/a+?/) // [&quot;a&quot;])
                 *?：表示某个模式出现0次或多次，(eg：&apos;abb&apos;.match(/ab*?b/) // [&quot;ab&quot;])
-                ??：表格某个模式出现0次或1次，(eg：&apos;abb&apos;.match(/ab??b/) // [&quot;ab&quot;])</code></pre>
+                ??：表格某个模式出现0次或1次，(eg：&apos;abb&apos;.match(/ab??b/) // [&quot;ab&quot;])
+        修饰符：表示模式的附加规则，放在正则模式的尾部，可单个或多个使用；(eg：var regex = /test/ig; )
+            g修饰符：默认情况下第一次匹配成功后，正则对象就停止往下匹配。但g修饰符表示全局匹配，加上它以后，正则对象将匹配全部符合条件的结果，主要用于搜索和替换；
+            i修饰符：默认情况下，正则对象区分字母的大小写，加上i修饰符以后表示忽略大小写；(/abc/i.test(&apos;ABC&apos;) // true)
+            m修饰符：
+                m修饰符表示多行模式，会修改^和$的行为。(/world$/m.test(&apos;hello world\n&apos;) // true)
+                默认情况下(即不加m修饰符时)，^和$匹配字符串的开始处和结尾处，加上m修饰符以后，^和$还会匹配行首和行尾，即^和$会识别换行符(\n)；
+        组匹配：
+            概述：正则表达式的括号表示分组匹配，括号中的模式可以用来匹配分组的内容；
+            非捕获组：(?:x)称为非捕获组，表示不返回该组匹配的内容，即匹配的结果中不计入这个括号；(eg：var m = &apos;abc&apos;.match(/(?:.)b(.)/); m // [&quot;abc&quot;, &quot;c&quot;] ---&gt;不匹配第一个括号)
+            先行断言：x(?=y)称为先行断言，x只有在y前面才匹配，y不会被计入返回结果；比如要匹配后面跟着百分号的数字，可以写成/\d+(?=%)/;
+            先行否定断言：x(?!y)称为先行否定断言，x只有不在y前面才匹配，y不会被计入返回结果；比如要匹配后面跟着的不是百分号的数字，就要写成/\d+(?!%)/；(eg：/\d+(?!\.)/.exec(&apos;3.14&apos;))
+6.10、JSON对象：
+    JSON格式：JSON格式是一种用于数据交换的文本格式；优点：书写简单，一目了然；符合JavaScript原生语法，可以由解释引擎直接处理，不用另外添加解析代码。
+    JSON对值的类型和格式有严格的规定：
+        复核类型的值只能是数组或对象，不能是函数、正则表达式对象、日期对象；
+        原始类型的值只有四种：字符串、数值(必须以十进制表示)、布尔值和null(不能使用NaN、Infinity、-Infinity、undefined)；
+        字符串必须使用双引号表示，不能使用单引号；
+        对象的键名必须放在双引号里面；
+        数组或对象最后一个成员的后面，不能加逗号；
+        注：null、空数组、空对象都是合法的JSON值；
+    静态方法：
+        JSON.stringify()：
+            基本用法：
+                JSON.stringify方法用于将一个值转为JSON字符串；该字符串符合JSON格式，并且可以被JSON.parse方法还原；
+                注意，对于原始类型的字符串，转换结果会带双引号;(eg：JSON.stringify(&apos;abc&apos;) // &quot;abc&quot; JSON.stringify(&apos;foo&apos;) === &quot;\&quot;foo\&quot;&quot; // true ---&gt;需加内层双引号)
+                如果对象属性是undefined，函数或XML对象，该属性会被JSON.string过滤；
+                如果数组的成员是undefined、函数或xml对象，则这些值会被转成null；
+                正则对象会被转成空对象;(eg：JSON.stringify(/foo/) // {})
+            第二个参数：
+                JSON.stringify方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性；
+                还可以是一个函数，用来改变JSON.stringify的返回值；
+            第三个参数：
+                JSON.stringify还可以接受第三个参数，用于增加返回的JSON字符串的可读性；
+                如果数字，表示每个属性前面添加的空格(最多不超过10个)；
+                如果是字符串(不超过10个字符)，则该字符串会添加在每行前面；
+            参数对象的toJSON方法：
+                如果参数对象有自定义的toJSON方法，那么JSON.stringify会使用这个方法的返回值作为参数，而忽略原对象的其他属性；
+        JSON.parse()：
+            JSON.parse方法用于将JSON字符串转换成对应的值；
+            如果传入的字符串不是有效的JSON格式，JSON.parse方法将报错；
+            JSON.parse方法可以接受一个处理函数，作为第二个参数，用法与JSON.stringify方法类似；</code></pre><h2 id="7、面向对象编程"><a href="#7、面向对象编程" class="headerlink" title="7、面向对象编程"></a>7、面向对象编程</h2><pre><code>7.1、实例对象与new命令
+    对象是什么：
+        对象是单个实物的抽象；
+        对象是一个容器，封装了属性(prototype,属性是对象的状态)和方法(method，方法是对象的行为)；
+    构造函数：
+        JavaScript语言使用构造函数作为对象的模板，描述实例对象的基本结构；
+        所谓构造函数就是专门用来生成实例对象的函数；一个构造函数可以生成多个实例对象，这些实例对象都有相同的结构；
+        构造函数就是一个普通的函数，但有着自己的特征和用法；(eg：var Vehicle = function () { this.price = 1000; } ---&gt;Vehicle就是构造函数，为区分首字母大写)
+        构造函数特点：
+            函数体内部使用了this关键字，代表了所要生成的对象实例；
+            生成对象的时候，必须使用new命令；
+    new命令：
+        基本用法：</code></pre>
       
       <!-- 版权声明 -->
       
@@ -1030,7 +1083,7 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript入门"><span class="toc-number">1.</span> <span class="toc-text">JavaScript入门:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、JavaScript简介"><span class="toc-number">1.1.</span> <span class="toc-text">1、JavaScript简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、JavaScript基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">2、JavaScript基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、数据类型"><span class="toc-number">1.3.</span> <span class="toc-text">3、数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、运算符"><span class="toc-number">1.4.</span> <span class="toc-text">4、运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、语法"><span class="toc-number">1.5.</span> <span class="toc-text">5、语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、标准库"><span class="toc-number">1.6.</span> <span class="toc-text">6、标准库</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript入门"><span class="toc-number">1.</span> <span class="toc-text">JavaScript入门:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、JavaScript简介"><span class="toc-number">1.1.</span> <span class="toc-text">1、JavaScript简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、JavaScript基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">2、JavaScript基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、数据类型"><span class="toc-number">1.3.</span> <span class="toc-text">3、数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、运算符"><span class="toc-number">1.4.</span> <span class="toc-text">4、运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、语法"><span class="toc-number">1.5.</span> <span class="toc-text">5、语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、标准库"><span class="toc-number">1.6.</span> <span class="toc-text">6、标准库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、面向对象编程"><span class="toc-number">1.7.</span> <span class="toc-text">7、面向对象编程</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

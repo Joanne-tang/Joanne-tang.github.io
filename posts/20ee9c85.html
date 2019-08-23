@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T10:23:28.876Z">
+<meta property="og:updated_time" content="2019-08-23T10:04:04.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript、ECMScript6的学习">
 <meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
@@ -70,7 +70,7 @@
 		</nav>
 		<!-- <nav>
 				总文章数（4）
-				总字数 <span class="post-count">17.4k</span>
+				总字数 <span class="post-count">20.2k</span>
 		</nav> -->
 		<nav class="header-smart-menu">
     		
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：16.8k字 | 预计阅读时长：63分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：19.5k字 | 预计阅读时长：73分钟
           </span>
           </a>
         
@@ -193,7 +193,7 @@
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：16.8k字 | 预计阅读时长：63分钟
+          字数：19.5k字 | 预计阅读时长：73分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
@@ -908,7 +908,104 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
             函数体内部使用了this关键字，代表了所要生成的对象实例；
             生成对象的时候，必须使用new命令；
     new命令：
-        基本用法：</code></pre>
+        基本用法：new命令的作用，就是执行构造函数，返回一个实例对象；
+        new命令的原理：使用new命令时，它后面的函数依次执行下面的步骤：
+            创建一个空对象，作为将要返回的对象实例；
+            将这个空对象的原型，指向构造函数的prototype属性；
+            将这个空对象赋值给函数内部的this关键字；
+            开始执行构造函数内部的代码；
+        new.target：函数内部可以使用new.target属性。如果当前函数是new命令调用，new.target指向当前函数，否则为undefined；使用这个属性，可以判断函数调用的时候是否使用了new命令；
+        Object.create()创建实例对象：可以以已有的对象作为模板，生成新的实例对象；
+7.2、this关键字：
+    涵义：this就是属性或方法“当前”所在的对象；
+    实质：JavaScript语言之所以有this的设计，跟内存里面的数据结构有关系；设计目的就是在函数体内部，指代函数当前的运行环境；
+    使用场合：
+        全局环境：全局环境使用this，它指的就是顶层对象window；
+        构造函数：构造函数中的this，指的就是实例对象；
+        对象的方法：如果对象的方法里面包含this，this的指向就是方法运行时所在的对象；该方法赋值另一个对象，就会改变this的指向；这条规则不容易掌握；
+    使用注意点：
+        避免多层this：由于this的指向是不确定的，所以切勿在函数中包含多层的this；
+        避免数组处理方法中的this：
+            数组的map和forEach方法，允许提供一个函数作为参数；这个函数内部不应该使用this；
+            (解决方法：中间变量固定this；把this当做forEach方法的第二个参数，固定它的运行环境)
+        避免回调函数中的this：回调函数中的this往往会改变指向，最好避免使用；
+    绑定this的方法：
+        this的动态切换，固然为JavaScript创造了巨大的灵活性，但也使得编程变得困难和模糊。有时需要把this固定下来，避免出现意想不到的情况；JavaScript提供了call、apply、bind这三个方法，来切换/固定this的指向；
+        Function.prototype.call()：
+            函数实例的call方法，可以指定函数内部this的指向(即函数执行时所在的作用域)，然后在所指定的作用域中，调用该函数；
+            call方法的参数，应该是一个对象；
+                如果参数为空、null、undefined，则默认传入全局对象；
+                如果参数是一个原始值，那么这个原始值就会自动转成对应的包装对象；
+                还可以接受多个参数，第一个参数就是this所要指向的那个对象，后面的参数则是函数调用时所需的参数；(eg：function add(a, b) { return a + b; } add.call(this, 1, 2) // 3)
+            call方法的应用：调用对象的原生方法;
+        Function.prototype.apply():
+            apply与call方法作用类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接受一个数组作为函数执行时的参数：func.apply(thisValue, [arg1, arg2, ...])
+            参数：
+                第一个参数this所要指向的那个对象，如果设为null或undefined，则等同于指定全局对象；
+                第二个参数是一个数组，该数组的所有成员依次作为参数，传入原函数；原函数的参数在call方法中必须一个个添加，但在apply中，必须以数组形式添加；
+                (eg：function f(x, y){ console.log(x+y); } f.call(null, 1, 1) // 2 f.apply(null, [1, 1]) // 2) 
+            找出数组最大元素：结合使用apply方法和Math.max方法，可以返回数组的最大元素；(eg：var a = [1, 3, 12, 11]; Math.max.apply(null, a) // 12)
+            将数组的空元素变为undefined：
+                通过apply方法，利用Array构造函数将数组的空元素变成undefined；(eg：Array.apply(null, [&apos;a&apos;, &apos;b&apos;]) // [&apos;a&apos;, undefined, &apos;b&apos;])
+                空元素与undefined的差别在于，数组的forEach方法会跳过空元素，但是不会跳过undefined。因此遍历内部元素时，会得到不同的结果；
+            转换类似数组的对象：
+                利用数组对象的slice方法，可以将一个类似数组的对象(比如arguments对象)转为真正的数组；
+                (eg：Array.prototype.slice.apply({0: 1, length: 1}) // 1 --&gt;前提是被处理的对象必须有length属性，以及相对的数字键)
+            绑定回调函数的对象：由于apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内；
+        Function.prototype.bind()：
+            bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数；
+            参数：
+                如果bind方法的第一个参数是null或undefined，等于将this绑定全局对象，函数运行时this指向顶层对象；
+                (eg：function add(x, y) { return x + y; } var plus5 = add.bind(null, 5); plus5(10) // 15
+                解释：add函数内部并没有this，使用bind方法的主要目的是绑定参数x，以后每次运行新函授plus5，就只需要提供另一个参数y就够了)
+            注意点：
+                每一次返回一个新函数：写监听事件时，不能这样写(element.addEventListener(&apos;click&apos;, o.m.bind(o));)，正确应该(var listener = o.m.bind(o);element.addEventListener(&apos;click&apos;, listener);)
+                结合回调函数使用：常见的错误是将包含this的方法直接当作回调函数，解决方法就是使用bind方法；
+                结合call方法使用：利用bind方法，可以改写一些JavaScript原生方法的使用形式;
+                (eg：[1, 2, 3].slice(0, 1) // [1] 等同于 Array.prototype.slice.call([1, 2, 3], 0, 1) // [1] 还可以是 var slice = Function。prototype.call.bind(Array.prototype.slice); slice([1, 2, 3], 0, 1) // [1])
+7.3、对象的继承：
+    原型对象概述：
+        构造函数的缺点：同一个构造函数的多个实例之间无法共享属性，从而造成对系统资源的浪费(解决办法：JavaScript的原型对象)；
+        prototype(原型对象)属性的作用：
+            JavaScript规定，每个函数都有一个prototype属性，指向一个对象；
+            原型对象的作用就是定义所有实例对象共享的属性和方法，这也就是它被称为原型对象的原因，而实例对象可以视作从原型对象衍生的子对象；
+            JavaScript继承机制的设计思想，如果属性和方法定义在原型上，那么所有实例对象就能共享，不仅节省了内存，还体现了实例对象之间的联系；
+        原型链：
+            所有对象都继承了Object.prototype的属性，这就是所有对象都有valueOf和toString方法的原因。
+            Object.prototype的原型是null，null没有任何属性和方法，也没有自己的原型，因此，原型链的尽头就是null；(eg：Object.getprototypeOf(Object.prototype) // null)
+        construction属性：
+            prototype对象有一个construction属性，默认指向prototype对象所在的构造函数；
+            作用：可以得知某个实例对象，到底是哪一个构造函数产生的；可以从一个实例对象新建另一个实例(使实例方法中调用自身的构造函数称为可能)；
+    instanceof运算符：
+        instanceof运算符返回一个布尔值，表示对象是否为某个构造函数的实例；
+        instanceof运算符的左边是实例对象，右边是构造函数；它会检查右边构建函数的原型对象(prototype)，是否在左边对象的原型链上；(eg：v instanceof Vehicle 等同于 Vehicle.prototype.isprototypeOf(v))
+        由于任意对象(除了null)都是Object的实例，所以instanceof运算符可以判断一个值是否为非null的对象；
+        用处：
+            判断值的类型；
+            还可以解决解决调用构造函数时，忘了加new命令的问题；
+            注意：instanceof运算符只能用于对象，不适用于原始类型的值；对于undefined和null，instanceOf运算符总是返回false；
+    构造函数的继承：
+        让一个构造函数继承另一个构造函数分两步实现：
+            一是在子类的构造函数中，调用父类的构造函数；
+            二是让子类的原型指向父类的原型，这样子类就可以继承父类原型；
+    多重继承：JavaScript不提供多重继承功能，即不允许一个对象同时继承多个对象；但是可以通过变通方法，实现这个功能；
+    模块：
+        基本的实现方法：模块是实现特定功能的一组属性和方法的封装；简单的做法是把模块写成一个对象，所有的模块成员都放在这个对象里面；
+        封装私有变量(构造函数的写法)：构造函数有双重作用，既能用来塑造实例对象，又用来保存实例对象的数据，违背了构造函数与实例对象在数据上相分离的原则(即实例对象的数据，不应该保存在实例对象之外)。同时，非常耗费内存；
+        封装私有变量(立即执行函数的写法)：将相关的属性与方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的；
+        模块的放大模式：如果一个模块很大，必须分为几个部分，或者一个模块需要继承另一个模块，这时就有必要采用“放大模式”；若第一个执行的部分有可能加载一个不存在空对象，则可使用“宽放大模式”；
+        输入全局变量：独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互；为了在模块内部调用全局变量，必须显式地将其他变量输入模块；
+7.4、Object对象的相关方法：
+    Object.getPrototypeOf()：
+        该方法返回参数对象的原型，这是获取原型对象的标准方法；
+        空对象的原型是Object.prototype;(eg：Object.getPrototypeOf({}) === Object.prototype //true)
+        Object.prototype的原型是null；(eg：Object.getPrototypeOf(Object.prototype) === null // true)
+        函数的原型是Function.prototype；(eg：Object.getPrototypeOf(f) === Function.prototype // true)
+    Object.setPrototypeOf()：
+        该方法为参数对象设置原型，返回该参数对象。它接受两个参数，第一个是现有对象，第二个是原型对象；
+        new命令可以使用Object.setPrototype方法模拟；
+    Object.create()：
+        该方法接受一个对象作为参数，然后以它为原型，返回一个实例对象；该实例完全继承原型对象的属性；</code></pre>
       
       <!-- 版权声明 -->
       

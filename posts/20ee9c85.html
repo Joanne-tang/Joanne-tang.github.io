@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-26T10:19:21.695Z">
+<meta property="og:updated_time" content="2019-08-27T10:12:56.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript、ECMScript6的学习">
 <meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
@@ -70,7 +70,7 @@
 		</nav>
 		<!-- <nav>
 				总文章数（4）
-				总字数 <span class="post-count">22.1k</span>
+				总字数 <span class="post-count">24.3k</span>
 		</nav> -->
 		<nav class="header-smart-menu">
     		
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：21.4k字 | 预计阅读时长：80分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：23.6k字 | 预计阅读时长：88分钟
           </span>
           </a>
         
@@ -193,7 +193,7 @@
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：21.4k字 | 预计阅读时长：80分钟
+          字数：23.6k字 | 预计阅读时长：88分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
@@ -1073,7 +1073,112 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
         并行执行：所有异步任务同时执行，等到全部完成以后，才能执行final函数；
         并行与串行的结合：设置一个门槛，每次最多只能并行执行n个异步任务，这样避免了过分占用系统资源；
 8.2、定时器：
-8.3、Promise对象：</code></pre>
+    setTimeout()：
+        setTimeout函数用来指定某个函数或某段代码，在多少毫秒之后执行，可接受多个参数传给回调函数；
+        它返回一个整数，表示定时器的编号，以后可以用来取消这个定时器；
+        如果指定时间为0，即setTimeout(f, 0);目的是尽可能早地执行f，但是并不能保证立刻就执行f；
+        (eg：var timerId = setTimeout(func|code, delay);)
+    setInterval()：
+        setInterval函数的用法与setTimeout完全一致，区别仅仅在于setInterval指定某个任务每隔一段时间就执行一次，也就是无限次的定时执行；
+        可接受更多的参数，传入回调函数；
+    clearTimeout()、clearInterval()：
+        setTimeout和setInterval函数，都返回一个整数值，表示计数器编号。将该整数传入clearTimeout和clearInterval函数，就可以取消对应的定时器；
+8.3、Promise对象：
+    概述：
+        优点：让回调函数变成了规范的链式书写，程序流程可以看得很清楚；状态一旦改变，无论何时查询，都能得到这个状态；
+        缺点：编写的难度巴闭传统写法高，而且阅读代码也不是一眼就可以看懂；
+        Promise对象是JavaScript的异步操作解决方案，为异步操作提供统一接口；
+        Promise是一个对象，也是一个构造函数；
+        Promise的设计思想，所有异步任务都返回一个Promise实例；Promise实例有一个then方法，用来指定下一步的回调函数；
+    Promise对象的状态(一旦状态发生变化，就凝固了，不会再有新的状态变化)：
+        Promise对象通过自身的状态，来控制异步操作；
+        Promise实例具有三种状态：异步操作未完成(pending)、异步操作成功(fulfilled)、异步操作失败(rejected)；
+    Promise的最终结果只有两种：
+        异步操作成功，Promise实例传回一个值(value),状态为fulfilled；
+        异步操作失败，Promise实例抛出一个错误(error),状态变为rejected；
+    Promise构造函数：JavaScript提供原生的Promise构造函数，用来生成Promise实例；
+    Promise.prototype.then()：
+        Promise实例的then方法，用来添加回调函数；
+        then方法可以接受两个回调函数：第一个是异步操作成功时(变成fulfilled状态)的回调函数，第二个是异步操作失败(变为rejected)时的回调函数(该参数可以省略)。一旦状态改变，就调用相应的回调函数；
+    微任务：
+        Promise的回调函数属于异步任务，会在同步任务之后执行；
+        但又不是正常的异步任务，而是微任务；区别在于：正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着微任务执行的时间一定早于正常任务；</code></pre><h2 id="9、DOM："><a href="#9、DOM：" class="headerlink" title="9、DOM："></a>9、DOM：</h2><pre><code>9.1、DOM概述：
+    DOM是JavaScript操作网页的接口，全称为“文档对象模型”(Document Object Model);
+    作用：将网页转为一个JavaScript对象，从而可以用脚本进行各种操作(比如增删内容)；
+    节点：DOM的最小组成单位叫做节点(node)；文档的树形结构(DOM)，就是由各种不同类型的节点组成；每个节点可以看作是文档树的一片叶子;
+        节点的七种类型：
+            Document：整个文档树的顶层节点；
+            DocumentType：doctype标签(比如&lt;!DOCTYPE html&gt;);
+            Element：网页的各种HTML标签(比如&lt;body&gt;、&lt;a&gt;等)；
+            Attribute：网页元素的属性(比如class=“right”)；
+            Text：标签之间或标签包含的文本；
+            Commment：注释;
+            DocumentFragment：文档的片段；
+    DOM树：一个文档所有节点，按照所在的层级，可以抽象成一种树状结构；
+9.2、Node接口：
+    属性：
+        Node.prototype.nodeType：nodeType属性返回一个整数值，表示节点的类型；
+            不同的节点的nodeType属性值和对应的常量如下：
+            文档节点(document)：9，对应常量Node.DOCUMENT_NODE;
+            元素节点(element)：1，对应常量Node.ELEMENT_NODE;
+            属性节点(attr)：2，对应常量Node.ATTRIBUTE_NODE;
+            文本节点(text)：3，对应常量Node.TEXT_NODE;
+            文档片段节点(DocumentFragment)：11，对应常量Node.DOCUMENT_FRAGMENT_NODE；
+            文档类型节点(DocumentType)：10，对应常量Node.DOCUMENT_TYPE_NODE;
+            注释节点(Comment)：8，对应常量Node.COMMENT_NODE；
+        Node.prototype.nodeName：nodeName属性返回节点的名称；
+            文档节点（document）：#document；
+            元素节点（element）：大写的标签名；
+            属性节点（attr）：属性的名称；
+            文本节点（text）：#text；
+            文档片断节点（DocumentFragment）：#document-fragment；
+            文档类型节点（DocumentType）：文档的类型；
+            注释节点（Comment）：#comment；
+        Node.prototype.nodeValue：
+            nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写；
+            只有文本节点（text）、注释节点（comment）和属性节点（attr）有文本值，可以返回结果，其他类型节点一律返回null；
+        Node.prototype.textContent：textContent属性返回当前节点和它的所有后代节点的文本内容；
+        Node.prototype.baseURL：
+            baseURL属性返回一个字符串，表示当前网页的绝对路径；
+            浏览器的这个属性，计算网页上的相对路径的URl；
+            该属性为只读；如果无法读到网页的URl，则返回null；
+        Node.prototype.ownerDocument：该属性返回当前节点所在的顶层文档对象，即document对象；document对象本身的ownerDocument属性，返回null；
+        Node.prototype.nextSibling：该属性返回紧跟在当前节点后面的第一个同级节点；如果当前节点后面没有同级节点，则返回null；
+        Node.prototype.previousSibling：该属性返回当前节点前面的，距离最近的一个同级节点。如果当前节点前面没有同级节点，则返回null；
+        Node.prototype.parentNode：该属性返回当前节点的父节点；对于一个节点来说，它的父节点只可能是三种类型：元素节点（element）、文档节点（document）和文档片段节点（documentfragment)；
+        Node.prototype.parentElement：该属性返回当前节点的父元素节点；如果当前节点没有父节点，或父节点类型不是元素节点，则返回null；
+        Node.prototype.firstChild：该属性返回当前节点的第一个子节点，如果当前节点没有子节点，则返回null；
+        Node.prototype.lastChild：该属性返回当前节点的最后一个子节点，如果当前节点没有子节点，则返回null；
+        Node.prototype.childNodes：该属性返回一个类似数组的对象(NodeList集合)，成员包括当前节点的所有子节点；
+        Node.prototype.isConnected：该属性返回一个布尔值，表示当前节点是否在文档之中；
+    方法：
+        Node.prototype.appendChild()：该方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点；该方法的返回值解释插入文档的子节点；
+        Node.prototype.hasChildNodes()：
+            该方法返回一个布尔值，表示当前节点是否有子节点；
+            (eg：这些方法也可以判断：node.hasChildNodes()、node.firstChild !== null、node.childNodes &amp;&amp; node.childNodes.length &gt; 0)
+        Node.prototype.cloneNode()：该方法用于克隆一个节点；它接受一个布尔值作为参数，表示是否同时克隆子节点。它的返回值是一个克隆出来的新节点；
+        Node.prototype.insertBefore()：
+            该方法用于将某个节点插入父节点内部的指定位置；
+            接受两个参数：一是所要插入的的节点newNode；二是父节点parentNode内部的一个子节点referenceNode(若为null，则新节点插在当前节点的最后位置)。
+            newNode将插在referenceNode这个子节点前面；返回值是插入的新节点newNode；
+        Node.prototype.removeChild()：该方法接受一个子节点作为参数，用于从当前节点移除该子节点。返回值是移除的子节点；
+        Node.prototype.replaceChild()：
+            该方法用于将一个新的节点，替换当前节点的某一个子节点；
+            接受两个参数：一是用来替换的新节点；二是将要替换走的子节点；返回值的替换走的那个节点；
+        Node.prototype.contains()：该方法返回一个布尔值，表示参数节点是否满足以下三个条件之一：
+            参数节点为当前节点；
+            参数节点为当前节点的子节点；
+            参数节点为当前节点的后代节点；
+        Node.prototype.compareDocumentPosition()：该方法的用法与contains方法完全一致，返回一个六个比特位的二进制，表示参数节点与当前节点的关系；
+        Node.prototype.isEqualNode()：该方法返回一个布尔值，用于检查两个节点是否相等(类型、属性、子节点相同);
+        Node.prototype.issameNode()：该方法返回一个布尔值，表示两个节点是否为同一个节点；
+        Node.prototype.getRootNode()：该方法返回当前节点所在文档的根节点document，与ownerDocument属性的作用相同；
+9.3、NodeList接口，HTMLCollection接口：
+    概述：
+        DOM提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection；
+        区别：NodeList可以包含各种类型的节点，HTMLCollection只能包含HTML元素节点；
+    NodeList接口：
+        概述：</code></pre>
       
       <!-- 版权声明 -->
       
@@ -1248,7 +1353,7 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript入门"><span class="toc-number">1.</span> <span class="toc-text">JavaScript入门:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、JavaScript简介"><span class="toc-number">1.1.</span> <span class="toc-text">1、JavaScript简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、JavaScript基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">2、JavaScript基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、数据类型"><span class="toc-number">1.3.</span> <span class="toc-text">3、数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、运算符"><span class="toc-number">1.4.</span> <span class="toc-text">4、运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、语法"><span class="toc-number">1.5.</span> <span class="toc-text">5、语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、标准库"><span class="toc-number">1.6.</span> <span class="toc-text">6、标准库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、面向对象编程"><span class="toc-number">1.7.</span> <span class="toc-text">7、面向对象编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、异步操作概述："><span class="toc-number">1.8.</span> <span class="toc-text">8、异步操作概述：</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript入门"><span class="toc-number">1.</span> <span class="toc-text">JavaScript入门:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、JavaScript简介"><span class="toc-number">1.1.</span> <span class="toc-text">1、JavaScript简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、JavaScript基本语法"><span class="toc-number">1.2.</span> <span class="toc-text">2、JavaScript基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、数据类型"><span class="toc-number">1.3.</span> <span class="toc-text">3、数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、运算符"><span class="toc-number">1.4.</span> <span class="toc-text">4、运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、语法"><span class="toc-number">1.5.</span> <span class="toc-text">5、语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、标准库"><span class="toc-number">1.6.</span> <span class="toc-text">6、标准库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、面向对象编程"><span class="toc-number">1.7.</span> <span class="toc-text">7、面向对象编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、异步操作概述："><span class="toc-number">1.8.</span> <span class="toc-text">8、异步操作概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、DOM："><span class="toc-number">1.9.</span> <span class="toc-text">9、DOM：</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1433,11 +1538,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">日常学习总结</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">日常学习总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

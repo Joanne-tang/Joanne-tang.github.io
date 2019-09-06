@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-27T10:12:56.694Z">
+<meta property="og:updated_time" content="2019-09-06T10:02:38.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript、ECMScript6的学习">
 <meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
@@ -70,7 +70,7 @@
 		</nav>
 		<!-- <nav>
 				总文章数（4）
-				总字数 <span class="post-count">24.3k</span>
+				总字数 <span class="post-count">27k</span>
 		</nav> -->
 		<nav class="header-smart-menu">
     		
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：23.6k字 | 预计阅读时长：88分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：26.3k字 | 预计阅读时长：98分钟
           </span>
           </a>
         
@@ -193,7 +193,7 @@
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：23.6k字 | 预计阅读时长：88分钟
+          字数：26.3k字 | 预计阅读时长：98分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
@@ -1178,7 +1178,104 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
         DOM提供两种节点集合，用于容纳多个节点：NodeList和HTMLCollection；
         区别：NodeList可以包含各种类型的节点，HTMLCollection只能包含HTML元素节点；
     NodeList接口：
-        概述：</code></pre>
+        概述：
+            NodeList实例是一个类似数组的对象，它的成员是节点对象；
+            通过Node.childNodes、document.querySelectorAll()等节点搜索方法可得到NodeList实例；
+            NodeList实例很像数组，可以使用length属性和foeEach方法，但是它不是数组不能使用pop或push之类数组特有的方法；
+        NodeList.prototype.length：length属性返回NodeList实例包含的节点数量；
+        NodeList.prototype.forEach()：forEach方法用于遍历NodeList的所有成员。接受一个回调函数作为参数，每一轮遍历就执行一次这个回调函数；
+        NodeList.prototype.item()：item方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员；一般使用方括号运算符不用item方法；(eg：xxx.item(0)---&gt;xxx[0])
+        NodeList.prototype.keys()、NodeList.prototype.values()、NodeList.prototype.entries()：
+            这三个方法都返回一个ES6的遍历对象，可以通过for...of循环遍历获取每一个成员信息。
+            区别：keys()返回键名的遍历器，values()返回兼职的遍历器，entries()返回的遍历器同时包含键名和键值的信息；
+    HTMLCollection接口：
+        概述：
+            HTMLCollection是一个节点对象的集合，只能包含元素节点(element)，不能包含其他类型的节点；
+            它的返回值是一个类似数组的对象，但是与NodeList接口不同，HTMLCollection没有forEach方法，只能使用for循环遍历；
+            返回HTMLCollection实例的，主要是一些Document对象的集合属性，比如document.links、document.forms、document.images等；
+            HTMLCollection实例都是动态结合，节点的变化会实时反映在集合中；
+        HTMLCollection.prototype.length：length属性返回HTMLCollection实例包含的成员数量；
+        HTMLCollection.prototype.item：该方法接受一个整数值作为参数，表示成员的位置，返回该位置上的成员(一般使用方括号)；
+        HTMLCollection.prototype.namedltem()：namedltem方法的参数是一个字符串，表示id属性或name属性的值，返回对应的元素节点。如果没有对应的节点，则返回null；
+9.4、ParentNode接口，ChildNode接口：
+    概述：节点对象除了继承Node接口以外，还会继承其他接口。ParentNode接口表示当前节点是一个父节点，提供一些处理子节点的方法；ChildNode接口表示当前是一个子节点，提供一些相关方法；
+    ParentNode接口：
+        概述：
+            如果当前节点是父节点，就会继承ParentNode接口。
+            由于只有元素节点(element)、文档节点(document)和文档片段节点(documentFragment)拥有子节点，因此只有这三类节点会继承ParentNode接口；
+        ParentNode.children：children属性返回一个HTMLCollection实例，成员是当前节点的所有元素的子节点；该属性只读；如果没有元素子节点则返回0；
+        ParentNode.firstElementChild：firstElementChild属性返回当前节点的第一个元素子节点。如果没有任何元素子节点，则返回null；
+        ParentNode.lastElementChild：lastElementChild属性返回当前节点的最后一个元素子节点，如果不存在任何元素子节点，则返回null；
+        ParentNode.childElementCount：childElementCount属性返回一个整数，表示当前节点的所有元素子节点的数目。如果不包含任何元素子节点则返回0；
+        ParentNode.append()/prepend()：append/prepend方法为当前节点追加一个或多个子节点，位置是最后/第一个元素的子节点的后面/前面；没有返回值；
+    ChildNode接口：
+        概述：如果一个节点有父节点，那么该节点就继承了ChildNode接口；
+        ChildNode.remove()：remove方法用于从父节点移除当前节点；
+        ChildNode.before()/after()：before/after方法用于在当前节点前面/后面，插入一个或多个同级节点。两者拥有相同的父节点；
+        ChildNode.replaceWith()：replaceWith方法使用参数节点，替换当前节点；
+9.5、Document节点：
+    概述：document节点对象代表整个文档，每张网页都有自己的Document对象。
+    属性：
+        快捷方式和属性：
+            document.defaultView：该属性返回document对象所属的window对象；如果当前文档不属于window对象，该属性返回null；
+            document.doctype：document对象一般有两个子节点，第一个子节点是document.doctype，指向&lt;DOCTYPE&gt;节点，即文档类型(DTD)节点，一般写成&lt;!DOCUMENt.html&gt;;
+            document.documentElement：该属性返回当前文档的根元素节点(root)；通常是document节点的第二个子节点，紧跟在document.doctype节点后面。html网页的该属性，一般是&lt;html&gt;节点；
+            document.body,document.head：body指向&lt;body&gt;节点，head指向&lt;head&gt;节点；这两个属性总是存在的，如果网页码源省略了，浏览器会自动创建；属性可写；
+            document.scrollingElement：该属性返回文档的滚动元素，也就是说当文档滚动时，到底是哪个元素在滚动；
+            document.activeElement：该属性返回获取当前焦点(focus)的DOM元素；
+            document.fullscreenElement：该属性返回当前以全屏状态展示的DOM元素，如果不是全屏，则返回null；
+        节点集合属性：
+            document.links：该属性返回当前文档所有设定了href属性的&lt;a&gt;及&lt;area&gt;节点；
+            document.forms：该属性返回所有&lt;form&gt;表单节点；
+            document.images：该属性返回页面所有&lt;img&gt;图片节点；
+            document.embeds,document.plugins：都是返回所有&lt;embed&gt;节点；
+            document.scripts：该属性返回所有&lt;script&gt;节点；
+            document.styleSheets：该属性返回文档内嵌或引入的样式表集合；
+            小结：除了document.styleSheets，以上的集合属性返回的都是HTMLCollection实例；该实例是类似数组的对象，所以这些属性都有length属性，都可以使用方括号运算符引用成员；
+        文档静态信息属性：
+            document.documentURI，document.URL：都是返回一个字符串，不表示当前文档的网址；不同的是所继承的接口，documentURI继承Document接口，可用于所有文档；URL继承自HTMLDocument接口，只能用于HTML文档；
+            document.domain：该属性返回当前文档的域名，不包括协议和端口；
+            document.location：Location对象是浏览器提供的原生对象，提供URl相关的信息和操作方法；通过window.location和document.location属性，可以拿到这个对象；
+            document.lastModified：该属性返回一个字符串，表示当前文档最后修改的时间；不同浏览器的返回值，日期格式是不一样的；
+            document.title：该属性返回当前文档的标题；
+            document.characterSet：该属性返回当前文档的编码；
+            document.referrer：该属性返回一个字符串，表示当前文档的访问者来自哪里；
+            document.dir：document.dir返回一个字符串，表示文字方向；rtl表示从右到左，阿拉伯文是这种方式；ltr表示文字从左到右，包活英语和汉语在内的大多数文字采用这种方式；
+            document.compatMode：compatMode属性返回浏览器处理文档的模式，可能的值为BackCompat(向后兼容模式)和CSS1Compat(严格模式)；
+        文档状态属性：
+            document.hidden：该属性返回一个布尔值，表示当前页面是否可见；如果窗口最小化，浏览器切换了Tab,都会导致页面不可见，使得document.hidden返回true；(一般都是配合Page Visibility API使用)；
+            document.visibilityState：返回文档的可见状态；
+                visible：页面可见；注意页面可能是部分可见，即不是焦点窗口，前面被其他窗口部分挡住了；
+                hidden：页面不可见，有可能窗口最小化，或者浏览器切换到了另一个Tab；
+                prerender：页面处于正在渲染状态，对于用户来说，该页面不可见；
+                unloaded：页面从内存里面卸载了；
+            document.readyState：该属性返回当前文档的状态，共有三种可能的值；
+                loading：加载HTML代码阶段(尚未完成解析)；
+                interactive：加载外部资源阶段；
+                complete：加载完成；
+            document.cookie：该属性用来操作浏览器Cookie；
+            document.designMode：该属性控制当前文档是否可编辑。该属性只有两个值on和off，默认值为off；
+            document.implementation：该属性返回一个DOMImplementation对象；该对象有三个方法，主要用于创建独立于当前文档的新的Document对象；
+                DOMImplementation.createDocument()：创建一个 XML 文档。
+                DOMImplementation.createHTMLDocument()：创建一个 HTML 文档。
+                DOMImplementation.createDocumentType()：创建一个 DocumentType 对象。
+        方法：
+            document.open(),document.close()：open方法清除当前文档所有内容，使文档处于可写状态，供document.write方法写入内容；close方法用来关闭document.open()打开的文档；
+            document.write(),document.writeln()：write方法用于向当前文档写入内容；writeln与write方法一样，除了会在输出内容的尾部添加换行符；
+            document.querySelector()：该方法接受一个css选择器作为参数，返回匹配该选择器的元素节点；
+            document.querySelectorAll()：与querySeletor用法类似，区别是返回一个NodeList对象，包含所有匹配给定选择器的节点；
+            document.getElementsByTagName()：该方法搜索HTML标签名，返回符合条件的元素。它的返回值是一个类似数组对象(HTMLCollection实例),可以实时反映HTML文档的变化。如果没有任何匹配的元素，就返回一个空集；
+            document.getElementsByClassName()：该方法返回一个类似数组的对象(HTMLCollection实例),包括了所有calss名字符合指定条件的元素，元素的变化实时反映在返回结果中；
+            document.getElementsByName()：该方法用于选择拥有name属性的HTML元素(比如&lt;form&gt;&lt;radio&gt;&lt;img&gt;&lt;frame&gt;&lt;embed&gt;&lt;object&gt;等)，返回一个类似数组的对象(NodeList实例)；
+            document.getElementById()：该方法返回匹配指定id属性的元素节点，如果没有发现匹配的节点，则返回null；
+            document.elementFromPoint()：该方法返回位于页面指定位置最上层的元素节点；两个参数为横纵坐标，返回它的父元素；坐标无意义则返回null；
+            document.elementsFromPoint()：返回一个数组，成员是位于指定坐标的所有元素；
+            document.createElement()：该方法用来生成元素节点，并返回该节点；
+            document.createTextNode()：该方法用来生成文本节点(Text实例)，并返回该节点；它的参数是文本节点的内容；
+            document.createAttribute()：该方法生成一个新的属性节点(Attr实例)，并返回它；
+            document.createComment()：该方法生成一个新的注释节点，并返回该节点；参数是一个字符串；
+            document.createDocumentFragment()：该方法生成一个空的文档片段对象(DocumentFragment实例)
+            document.createEvent()：该方法生成一个事件对象(Event实例)，该对象可以被element.dispatchEvent方法使用，触发指定事件；</code></pre>
       
       <!-- 版权声明 -->
       
@@ -1538,11 +1635,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">日常学习总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">日常学习总结</a>
               </li>
             
             <div class="clearfix"></div>

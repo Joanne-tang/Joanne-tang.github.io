@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-06T10:02:38.421Z">
+<meta property="og:updated_time" content="2019-09-12T08:26:48.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript、ECMScript6的学习">
 <meta name="twitter:description" content="JavaScript入门:1、JavaScript简介JavaScript是一种轻量级的脚本语言，不具备开发操作系统的能力，只用来编写控制其他大型应用程序（如浏览器）的“脚本”； JavaScript也是一种嵌入式的语言，本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算; JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主环境（host）提供，所以JavaScri">
@@ -70,7 +70,7 @@
 		</nav>
 		<!-- <nav>
 				总文章数（4）
-				总字数 <span class="post-count">27k</span>
+				总字数 <span class="post-count">30.5k</span>
 		</nav> -->
 		<nav class="header-smart-menu">
     		
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：26.3k字 | 预计阅读时长：98分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：29.7k字 | 预计阅读时长：111分钟
           </span>
           </a>
         
@@ -193,7 +193,7 @@
         
       </header>
       <!-- <div align="center" class="post-count">
-          字数：26.3k字 | 预计阅读时长：98分钟
+          字数：29.7k字 | 预计阅读时长：111分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
@@ -1275,7 +1275,117 @@ JavaScript本身不提供任何I/O（输入输出）相关的API，都靠宿主�
             document.createAttribute()：该方法生成一个新的属性节点(Attr实例)，并返回它；
             document.createComment()：该方法生成一个新的注释节点，并返回该节点；参数是一个字符串；
             document.createDocumentFragment()：该方法生成一个空的文档片段对象(DocumentFragment实例)
-            document.createEvent()：该方法生成一个事件对象(Event实例)，该对象可以被element.dispatchEvent方法使用，触发指定事件；</code></pre>
+            document.createEvent()：该方法生成一个事件对象(Event实例)，该对象可以被element.dispatchEvent方法使用，触发指定事件；
+            document.addEventListener(),document.removeEventListener(),document.dispatchEvent()：这三个方法用于处理document节点的事件，它们都继承自EventTarget接口；
+            document.hasFocus()：该方法返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点；
+            document.adoptNode()：该方法将某个节点及其节点，从原来所在的文档或DocumentFragment里面移除，归属当前document，返回插入后的新节点。插入的节点对象的ownerDocument属性，会变成当前的document对象，而parentNode属性是null；
+            document.importNode()：该方法是从原来所在的文档或DocumentFragment里面，拷贝某个节点及其子节点，让它们归属当前document对象。拷贝的节点对象的ownerDocument属性，会变成当前的document对象，而parentNode属性是null；
+            document.createNodelterator()：该方法返回一个子节点的遍历器；
+                参数：第一个参数为所要遍历的根节点；第二个参数为所要遍历的节点类型(所有节点：NodeFilter.SHOW_ALL；元素节点：NodeFilter.SHOW_ELEMENT；文本节点：NodeFilter.SHOW_TEXT；评论节点：NodeFilter.SHOW_COMMENT)；
+            document.createTreeWalker()：该方法返回一个DOM的子树遍历器。它与document.createNodeIterator方法基本是类似的，区别在于它返回的TreeWalker实例，后者返回的是NodeIterator实例；
+            document.execCommand()：当document.designMode属性为on或contenteditable属性为true时，可以使用改方法改变内容的样式；返回值是布尔值，如果为false则这个方法无效；
+                参数：
+                    command：字符串，表示所要实施的样式；
+                    showDefaultUI：布尔值,表示是否使用默认的用户界面，建议总是设为false;
+                    input：字符串，表示样式的辅助内容；
+            document.queryCommandSupported()：该方法返回一个布尔值，比哦啊会死浏览器是否支持document.execCommand()的某个命令；
+            document.queryCommandEnabled()：该方法返回一个布尔值，表示当前是否可用document.execCommand()的某个命令；
+9.6、Element节点：
+    概述：Element节点对象对应网页的HTML元素；
+    实例属性：
+        元素特性的相关属性：
+            Element.id：该属性返回指定元素的id，该属性可读写；
+            Element.tagName：该属性返回指定元素的大写标签名，与nodeName属性的值相等；
+            Element.dir：该属性用于读写当前元素的文字方向，左到右(ltr)或右到左(rtl);
+            Element.accessKey：该属性用于读写分配给当前元素的快捷键；
+            Element.draggable：该属性返回一个布尔值，表示当前元素是否可拖动。属性可读写；
+            Element.lang：该属性返回当前元素的语言设置。该属性可读写；
+            Element.tabIndex：该属性返回一个整数，表示当前元素在Tab键遍历时的顺序。该属性可读写；
+            Element.title：该属性用来读写当前元素的HTML的title。该属性通常用来指定，鼠标悬浮时弹出的文字提示框；
+        元素状态的相关属性：
+            Element.hidden：该属性返回一个布尔值，表示当前元素的hidden属性，用来控制当前元素是否可见；该属性可读写；
+            Element.contentEditable：HTML属性可以设置该属性，使元素的内容可以编辑；
+            Element.isContentEditable：该属性返回一个布尔值，同样表示是否设置了contenteditable属性，该属性只读；
+            Element.attributes：该属性返回一个类似数组的对象，成员是当前元素节点的所有属性节点；
+            Element.className：该属性用来读写当前元素节点的class属性.它的值是一个字符串，每个class之间用空格分隔；
+            Element.classList：该属性返回一个类似数组的对象，当前元素节点的每个class就是这个对象的一个成员；
+                classList对象有下列方法:
+                    add()：添加一个class；
+                    remove()：移除一个class;
+                    contains()：检查当前元素是否包含某个class；
+                    toggle()：将某个class移入或移出当前元素；
+                    item()：返回指定索引位置的class；
+                    toString()：将class的列表转为字符串；
+            Element.dataset：网页元素可以自定义data-属性，用来添加数据；该属性返回一个对象，可以从这个对象读写data-属性；
+            Element.innerHTML：该属性返回一个字符串，等同于该元素包含的所有HTML代码。该属性可读写，常用来设置某个节点的内容；它能改写所有元素节点的内容，包括&lt;HTML&gt;和&lt;body&gt;元素；
+            Element.outerHTML：该属性返回一个字符串，表示当前元素节点的所有HTML代码，包括该元素本身和所有子元素；属性可读写，对它赋值相当于替换当前元素；
+            Element.clientHight/clientWidth：该属性返回一个整数值，表示元素节点的css高/宽度(单位像素)，只对块级元素生效，包括本身元素高/宽度和padding；
+            Element.clientLeft：该属性等于元素节点左边框的宽度，不包括左侧的padding和margin。如果没有设置左边框，或者是行内元素(display:inline),该属性为0；该属性返回整数值，会四舍五入；
+            Element.clientTop：该属性等于网页元素顶部边框的宽度，其他与clientLeft相同；
+            Element.scrollHeight：该属性返回一整数值，表示当前元素的总高度，包括溢出容器、当前不可见部分。
+            Element.scrollWidth：该属性表示当前元素的总高度，其他地方都与scrollHeight属性类似。这两个属性只读；
+            Element.scrollLeft：该属性表示当前元素的水平滚动条向右侧滚动的像素数量；可读写；
+            Element.scrollTop：该属性表示当前元素的垂直滚动条向下滚动的像素数量；可读写；
+            Element.offsetParent：该属性返回最靠近当前元素、并且css的position属性不等于staic的上层元素；主要用于确定子元素位置偏移的计算基准；
+            Element.offsetHeight：该属性返回一个整数，表示元素的css垂直高度，包括元素本身的高度、padding、margin和border，以及水平滚动条的高度；只读；
+            Element.offsetWidth：该属性表示元素的css水平宽度，其他都与Element.offsetHeight一致；只读；
+            Element.offsetLeft：返回当前元素左上角相对于Element.offsetParent节点的水平位移；
+            Element.offsetTop：返回垂直位移，单位为像素。通常，这两个值是指相对于父节点的位移；
+            Element.style：每个元素节点都有style用来读写该元素的行内样式信息；
+            Element.children：该属性返回一个类似数组的对象(HTMLCollection实例)，包括当前元素节点的所有子元素。如果当前元素没有子元素，则返回的对象包含零个成员；
+            Element.childElementCount：该属性返回当前元素节点包含的子元素节点的个数，与Element.children.length的值相同；
+            Element.firstElementChild/lastElementChild：该属性返回当前元素的第一个/最后一个元素子节点；
+            Element.nextElementSibling/previousElementSibling：该属性返回当前元素节点的后/前一个同级元素节点，如果没有返回null；
+    实例方法：
+        属性相关方法：
+        Element.querySelector()：该方法接受css选择器作为参数，返回父元素的第一个匹配的子元素；如果没有找到匹配的子元素，就返回null；
+        Element.querySelectorAll()：该方法接受css选择器作为参数，返回一个NodeList实例，包含所有匹配的子元素；
+        Element.getElementsByClassName()：该方法返回一个HTMLCollection实例，成员是当前元素节点的所有具有指定class的子元素节点；
+        Element.getElementsByTagName()：该方法返回一个HTMLCollection实例，成员是当前节点的所有匹配指定标签名的子元素节点；
+        Element.closest()：该方法接受一个css选择器作为参数，返回匹配该选择器的、最接近当前节点的一个祖先节点(包括当前节点本身)。如果没有任何节点匹配css选择器，则返回null；
+        Element.matches()：该方法返回一个布尔值，表示当前元素是否匹配给定的css选择器；
+        Element.scrollIntoView()：该方法滚动当前元素，进入浏览器的可见区域，类似于设置window.location.hash的效果；可接受一个布尔值作为参数；
+        Element.getBoundingClientRect()：该方法返回一个对象，提供当前元素节点的大小、位置等信息，基本上就是css盒状模型的所有信息；
+        Element.getClientRects()：该方法返回一个类似数组的对象，里面是当前元素在页面上形成的所有矩形(所以方法名中的Rect用的是复数)。每个矩形都有bottom、height、left、right、top、width六个属性，表示它们相对于视口的四个坐标，以及本身的高度和宽度；
+        Element.insertAdjacentElement()：该方法在相对于当前元素的指定位置，插入一个新的节点。该方法返回被插入的节点，如果插入失败，则返回null；
+            参数：
+                第一个参数是字符串，表示插入位置(beforebegin:当前元素之前；afterbegin：当前元素内部的第一个子节点前面；beforeend：当前元素内部的最后一个子节点后面；afterend：当前元素之后)；
+                第二个参数是将要插入的节点；
+        Element.insertAdjacentHTML()：该方法用于将一个HTML字符串，解析生成DOM结构，插入相对于当前节点的指定位置；接受两个参数(表示位置的字符串，待解析的HTML字符串);
+        Element.insertAdjacentText()：该方法在相对于当前节点的指定位置，插入一个文本节点，用法与Element.insertAdjacentHTML方法一致；
+        Element.remove()：该方法继承自ChildNode接口，用于将当前元素节点从它的父节点移除；
+        Element.focus()：该方法用于将当前页面的焦点，转移到指定元素上；可接受一个对象作为参数；
+        Element.blur()：该方法用于将焦点从当前元素移除；
+        Element.click()：该方法用于在元素上模拟一次鼠标点击，相当于触发了click事件；
+9.7、属性的操作：
+    Element.attribute属性：元素对象有一个attribute属性，返回一个类似数组的动态对象，成员是该元素标签的所有属性节点对象，属性的实时变化都会反映在这个节点对象上(该属性为元素对象独有)；
+    元素的标准属性：HTML元素的标准属性(即在标准中定义属性)，会自动成为元素节点对象的属性；
+    属性操作的标准方法：
+        Element.getAttribute()：该方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null；
+        Element.getAttributeNames()：该方法返回一个数组，成员是当前元素的所有属性的名字。如果当前元素没有任何属性，则返回一个空数组。使用Element.attributes属性，也可以拿到同样的结果，唯一的区别是它返回的是类似数组的对象；
+        Element.setAttribute()：该方法用于为当前元素节点新增属性，如果同名属性已存在，则相当于编辑已存在属性。该方法没有返回值；
+        Element.hasAttribute()：该方法返回一个布尔值，表示当前元素节点是否包含指定属性，如果没有任何属性，就返回false，否则返回true；
+        Element.removeAttribute()：该方法移除指定属性，该方法没有返回值；
+    dataset属性：指向一个对象，可以用来操作HTML元素标签的data-*属性；
+9.8、Text节点和DocumentFragment节点：
+    Text节点的属性：
+        data：该属性等同于nodeValue属性，用来设置或读取文本节点的内容；
+        wholeText：该属性将当前文本节点与毗邻的文本节点，作为一个整体返回。大多数情况下，wholeText属性的返回值，与data属性和textContent属性相同。某些特殊情况有差异；
+        length：该属性返回当前文本节点的文本长度；
+        nextElementSibling/previousElementSibling：该属性返回紧跟在当前文本节点后面/前面最近的那个同级元素节点。如果取不到元素节点，则返回null；
+    Text节点的方法：
+    appendData()：在Text节点尾部追加字符串；
+    deleteData()：删除Text节点内部的子字符串，第一个参数为子字符串开始位置，第二个参数为子字符串长度；
+    insertData()：在Text节点插入字符串，第一个参数为插入位置，第二个参数为插入的子字符串；
+    replaceData()：用于替换文本，第一个参数为替换开始位置，第二个参数为需要被替换的长度，第三个参数为新加入的字符串；
+    subStringData()：用于获取子字符串，第一个参数为子字符串在Text节点中的开始位置，第二个参数为子字符串长度；
+    remove()：该方法用于移除当前Text节点；
+    splitText()：
+        该方法将Text节点一分为二，变成两个毗邻的Text节点；它的参数就是分割位置(从零开始)，分割到该位置的字符前结束。如果分割位置不存在，将报错；
+        分割后该方法返回分割后方的字符串，而原text节点变成只包含分割位置前方的字符串；
+        父元素的normalize方法可以实现逆操作，将字符串合并；
+    DocumentFragment节点：该节点代表一个文档的片段，本身就是一个完整的DOM树形结构。它饿，没有父节点，parentNode返回null，但是可以插入任意数量的字节点。它不属于当前文档，操作DocumentFragment节点，要比直接操作DOM树快得多；
+9.9、css操作：</code></pre>
       
       <!-- 版权声明 -->
       

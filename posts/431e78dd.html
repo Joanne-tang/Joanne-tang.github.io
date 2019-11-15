@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://tcy.xyz">
   <title>someNews | Joanne-tang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]let a = {a: 10};let b = {b: 10};let obj = {  a: 10};obj[b] = 20;console.log(obj[a]);// 20解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20">
+  <meta name="description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="someNews">
 <meta property="og:url" content="https://tcy.xyz/posts/431e78dd.html">
 <meta property="og:site_name" content="Joanne-tang">
-<meta property="og:description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]let a = {a: 10};let b = {b: 10};let obj = {  a: 10};obj[b] = 20;console.log(obj[a]);// 20解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20">
+<meta property="og:description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-15T09:54:49.627Z">
+<meta property="og:updated_time" content="2019-11-15T09:59:53.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="someNews">
-<meta name="twitter:description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]let a = {a: 10};let b = {b: 10};let obj = {  a: 10};obj[b] = 20;console.log(obj[a]);// 20解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20">
+<meta name="twitter:description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]">
   
     <link rel="alternative" href="/atom.xml" title="Joanne-tang" type="application/atom+xml">
   
@@ -198,8 +198,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="随笔记录"><a href="#随笔记录" class="headerlink" title="随笔记录"></a>随笔记录</h2><h3 id="1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object"><a href="#1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object" class="headerlink" title="1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]"></a>1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]</h3><p>let a = {a: 10};<br>let b = {b: 10};<br>let obj = {<br>  a: 10<br>};<br>obj[b] = 20;<br>console.log(obj[a]);<br>// 20<br>解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20}，这是因为如果属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]，最后一步获取obj[a]时，a本身也是一个对象，所以会被转换为获取obj[‘[object Object]’]也就是上一步赋值的20。</p>
-<h3 id="2、属性选择器"><a href="#2、属性选择器" class="headerlink" title="2、属性选择器"></a>2、属性选择器</h3><p>input[type=”text”]<br>{
+        <h1 id="随笔记录"><a href="#随笔记录" class="headerlink" title="随笔记录"></a>随笔记录</h1><h2 id="1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object"><a href="#1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object" class="headerlink" title="1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]"></a>1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]</h2><a id="more"></a>
+<p>let a = {a: 10};<br>let b = {b: 10};<br>let obj = {<br>  a: 10<br>};<br>obj[b] = 20;<br>console.log(obj[a]);<br>// 20<br>解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20}，这是因为如果属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]，最后一步获取obj[a]时，a本身也是一个对象，所以会被转换为获取obj[‘[object Object]’]也就是上一步赋值的20。</p>
+<h2 id="2、属性选择器"><a href="#2、属性选择器" class="headerlink" title="2、属性选择器"></a>2、属性选择器</h2><p>input[type=”text”]<br>{
   width:150px;<br>  display:block;<br>  margin-bottom:10px;<br>  background-color:yellow;<br>  font-family: Verdana, Arial;<br>}
 解释：input标签带有type=”text”属性的，都使用这个样式<br>[attribute]    用于选取带有指定属性的元素。<br>[attribute=value]    用于选取带有指定属性和值的元素。<br>[attribute~=value]    用于选取属性值中包含指定词汇的元素。<br>[attribute|=value]    用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。<br>[attribute^=value]    匹配属性值以指定值开头的每个元素。<br>[attribute$=value]    匹配属性值以指定值结尾的每个元素。<br>[attribute*=value]    匹配属性值中包含指定值的每个元素。</p>
 
@@ -366,7 +367,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#随笔记录"><span class="toc-number">1.</span> <span class="toc-text">随笔记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object"><span class="toc-number">1.1.</span> <span class="toc-text">1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、属性选择器"><span class="toc-number">1.2.</span> <span class="toc-text">2、属性选择器</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#随笔记录"><span class="toc-number">1.</span> <span class="toc-text">随笔记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object"><span class="toc-number">1.1.</span> <span class="toc-text">1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、属性选择器"><span class="toc-number">1.2.</span> <span class="toc-text">2、属性选择器</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

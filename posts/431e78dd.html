@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joanne-tang">
 <meta property="og:description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-18T01:36:33.039Z">
+<meta property="og:updated_time" content="2019-11-18T02:23:00.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="someNews">
 <meta name="twitter:description" content="随笔记录1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]">
@@ -182,7 +182,7 @@
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
           <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：336字 | 预计阅读时长：1分钟
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 | 字数：344字 | 预计阅读时长：1分钟
           </span>
           </a>
         
@@ -193,16 +193,18 @@
          -->
       </header>
       <!-- <div align="center" class="post-count">
-          字数：336字 | 预计阅读时长：1分钟
+          字数：344字 | 预计阅读时长：1分钟
       </div> -->
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="随笔记录"><a href="#随笔记录" class="headerlink" title="随笔记录"></a>随笔记录</h1><h3 id="1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object"><a href="#1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串-object-Object" class="headerlink" title="1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]"></a>1、属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]</h3><a id="more"></a>
-<p>let a = {a: 10};<br>let b = {b: 10};<br>let obj = {<br>  a: 10<br>};<br>obj[b] = 20;<br>console.log(obj[a]);<br>// 20<br>解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20}，这是因为如果属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]，最后一步获取obj[a]时，a本身也是一个对象，所以会被转换为获取obj[‘[object Object]’]也就是上一步赋值的20。</p>
-<h3 id="2、属性选择器"><a href="#2、属性选择器" class="headerlink" title="2、属性选择器"></a>2、属性选择器</h3><p>input[type=”text”]<br>{
-  width:150px;<br>  display:block;<br>  margin-bottom:10px;<br>  background-color:yellow;<br>  font-family: Verdana, Arial;<br>}
-解释：input标签带有type=”text”属性的，都使用这个样式<br>[attribute]    用于选取带有指定属性的元素。<br>[attribute=value]    用于选取带有指定属性和值的元素。<br>[attribute~=value]    用于选取属性值中包含指定词汇的元素。<br>[attribute|=value]    用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。<br>[attribute^=value]    匹配属性值以指定值开头的每个元素。<br>[attribute$=value]    匹配属性值以指定值结尾的每个元素。<br>[attribute*=value]    匹配属性值中包含指定值的每个元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;a: 10&#125;;</span><br><span class="line">let b = &#123;b: 10&#125;;</span><br><span class="line">let obj = &#123;</span><br><span class="line">  a: 10</span><br><span class="line">&#125;;</span><br><span class="line">obj[b] = 20;</span><br><span class="line">console.log(obj[a]);</span><br><span class="line">// 20</span><br></pre></td></tr></table></figure>
+
+<p>解释：obj[b] = 20的赋值操作后，obj其实已经变成了{a: 10, [object Object]: 20}，这是因为如果属性名表达式是一个对象的话，那么默认情况下会自动将对象转为字符串[object Object]，最后一步获取obj[a]时，a本身也是一个对象，所以会被转换为获取obj[‘[object Object]’]也就是上一步赋值的20。</p>
+<h3 id="2、属性选择器"><a href="#2、属性选择器" class="headerlink" title="2、属性选择器"></a>2、属性选择器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">input[type="text"]</span><br><span class="line">&#123;</span><br><span class="line">  width:150px;</span><br><span class="line">  display:block;</span><br><span class="line">  margin-bottom:10px;</span><br><span class="line">  background-color:yellow;</span><br><span class="line">  font-family: Verdana, Arial;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：input标签带有type=”text”属性的，都使用这个样式<br>[attribute]    用于选取带有指定属性的元素。<br>[attribute=value]    用于选取带有指定属性和值的元素。<br>[attribute~=value]    用于选取属性值中包含指定词汇的元素。<br>[attribute|=value]    用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。<br>[attribute^=value]    匹配属性值以指定值开头的每个元素。<br>[attribute$=value]    匹配属性值以指定值结尾的每个元素。<br>[attribute*=value]    匹配属性值中包含指定值的每个元素。</p>
 
       
       <!-- 版权声明 -->
